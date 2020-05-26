@@ -1,0 +1,33 @@
+﻿<Window x:Class="Jotter.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jotter"
+        mc:Ignorable="d"
+        Title="Login" Height="400" Width="300">
+    <Window.Resources>
+        <local:LoginFormConverter x:Key="dataConverter"/>
+    </Window.Resources>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <WrapPanel Orientation="Vertical" Width="200">
+            <TextBlock FontSize="25" Margin="0 0 0 10">Login</TextBlock>
+			
+            <TextBlock FontSize="18">Email</TextBlock>
+			<TextBox Name="Email" Width="200" FontSize="16" Padding="5 3" Text="{Binding Path=Login.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+			
+            <TextBlock FontSize="18">Password</TextBlock>
+            <PasswordBox Name="Password" Width="200" FontSize="16" Padding="5 3" PasswordChar="*" />
+			
+            <Button Width="200" FontSize="16" Padding="5 3" Margin="0 10 0 0"
+                    Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Content="Log in">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{StaticResource dataConverter}" Mode="TwoWay">
+                        <Binding ElementName="Email" Path="Text" UpdateSourceTrigger="PropertyChanged" />
+                        <!--<Binding ElementName="Password" UpdateSourceTrigger="PropertyChanged" />-->
+                    </MultiBinding>
+                </Button.IsEnabled>
+            </Button>
+        </WrapPanel>
+    </Grid>
+</Window>
