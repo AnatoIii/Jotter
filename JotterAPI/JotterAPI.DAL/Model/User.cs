@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace JotterAPI.DAL.Model
 {
-	public class User
+	public class User : Entity
 	{
-		public Guid Id { get; set; }
-
 		public string Name { get; set; }
 		
 		public string Email { get; set; }

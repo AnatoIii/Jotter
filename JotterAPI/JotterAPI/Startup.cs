@@ -1,4 +1,8 @@
 using JotterAPI.DAL;
+using JotterAPI.Helpers;
+using JotterAPI.Helpers.Abstractions;
+using JotterAPI.Services;
+using JotterAPI.Services.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +25,12 @@ namespace JotterAPI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllers();
+
+			services.AddTransient<IFileService, FileService>();
+			services.AddTransient<ICategoriesService, CategoriesService>();
+			services.AddTransient<IUserService, UserService>();
+			services.AddTransient<INoteService, NotesService>();
+			services.AddTransient<IFileWorker, FileSaverHelper>();
 
 			services.AddDbContext<JotterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JotterDbContext")));
 		}
