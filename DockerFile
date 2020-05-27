@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+WORKDIR /output
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /src
+COPY JotterAPI/ source/
+WORKDIR /src/source
+RUN dotnet restore JotterAPI/JotterAPI.csproj
+RUN dotnet publish JotterAPI/JotterAPI.csproj -c Release -o output
+
+FROM base AS final
+COPY --from=build /src/source/output .
+ENTRYPOINT [ "dotnet", "JotterAPI.dll" ]

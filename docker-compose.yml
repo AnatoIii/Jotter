@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: microsoft/mssql-server-linux:latest
+    container_name: db
+    ports:
+      - 1433:1433
+    volumes:
+      - dbdata:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password
+      - MSSQL_PID=Express
+
+   jotterapi:
+    image: jotterapi:latest
+    container_name: jotterapi
+    depends_on:
+      - db
+    ports:
+     - '5000:5000'
+    env_file:
+      - ./jotterapi.env
+    environment:
+      WAIT_HOSTS: db:1433
+
+volumes:
+  dbdata:
+    driver: local
