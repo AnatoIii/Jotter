@@ -1,0 +1,125 @@
+﻿using JotterAPI.Model.DTOs.User;
+using JotterAPI.Services;
+using System;
+using System.Linq;
+using Xunit;
+
+namespace XUnitJotterAPITests
+{
+	public class UserServiceTests : JotterTestDbContext
+	{
+		[Fact]
+		public void UserServiceLogin_When_CorrectUser_Then_GetUser()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userLoginCredentials = new UserLoginCredentials {
+				Email = "test.user@gmail.com",
+				Password = "12345678",
+			};
+
+			var userLoginResponse = userService.Login(userLoginCredentials);
+
+			Assert.True(userLoginResponse.IsSuccessful);
+			Assert.Null(userLoginResponse.Error);
+			Assert.Equal(userLoginResponse.ResponseResult.Id, Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"));
+			Assert.NotNull(userLoginResponse.ResponseResult.Name);
+		}
+
+		[Fact]
+		public void UserServiceLogin_When_IncorrectEmail_Then_Error()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userLoginCredentials = new UserLoginCredentials {
+				Email = "incorrect@gmail.com",
+				Password = "12345678",
+			};
+
+			var userLoginResponse = userService.Login(userLoginCredentials);
+
+			Assert.False(userLoginResponse.IsSuccessful);
+			Assert.NotNull(userLoginResponse.Error);
+			Assert.Null(userLoginResponse.ResponseResult);
+		}
+
+		[Fact]
+		public void UserServiceLogin_When_WrongPassword_Then_Error()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userLoginCredentials = new UserLoginCredentials {
+				Email = "test.user@gmail.com",
+				Password = "Incorrect password",
+			};
+
+			var userLoginResponse = userService.Login(userLoginCredentials);
+
+			Assert.False(userLoginResponse.IsSuccessful);
+			Assert.NotNull(userLoginResponse.Error);
+			Assert.Null(userLoginResponse.ResponseResult);
+		}
+
+		[Fact]
+		public void UserServiceRegister_When_EmailExists_Then_Error()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userRegisterCredentials = new UserRegisterCredentials {
+				Email = "test.user@gmail.com",
+				Password = "Some password",
+				Name = "Some test name"
+			};
+
+			var userRegisterResponse = userService.Register(userRegisterCredentials).Result;
+
+			Assert.False(userRegisterResponse.IsSuccessful);
+			Assert.NotNull(userRegisterResponse.Error);
+			Assert.Null(userRegisterResponse.ResponseResult);
+		}
+
+		[Fact]
+		public void UserServiceRegister_When_NewUser_Then_GetUser()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userRegisterCredentials = new UserRegisterCredentials {
+				Email = Guid.NewGuid() + "test.user@gmail.com",
+				Password = "Some password",
+				Name = "Some test name"
+			};
+
+			var userRegisterResponse = userService.Register(userRegisterCredentials).Result;
+
+			var dbUser = _dbContext.Users.FirstOrDefault(user => user.Email == userRegisterCredentials.Email);
+
+			Assert.True(userRegisterResponse.IsSuccessful);
+			Assert.Null(userRegisterResponse.Error);
+			Assert.Equal(userRegisterResponse.ResponseResult.Id, dbUser.Id);
+		}
+
+		[Fact]
+		public void UserServiceGetById_When_UserNotExist_Then_Error()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userResponse = userService.GetById(Guid.NewGuid());
+
+			Assert.False(userResponse.IsSuccessful);
+			Assert.NotNull(userResponse.Error);
+			Assert.Null(userResponse.ResponseResult);
+		}
+
+		[Fact]
+		public void UserServiceGetById_When_UserExists_Then_GetUser()
+		{
+			var userService = new UserService(_dbContext);
+
+			var userResponse = userService.GetById(Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"));
+
+			Assert.True(userResponse.IsSuccessful);
+			Assert.Null(userResponse.Error);
+			Assert.NotNull(userResponse.ResponseResult.Name);
+		}
+	}
+}
