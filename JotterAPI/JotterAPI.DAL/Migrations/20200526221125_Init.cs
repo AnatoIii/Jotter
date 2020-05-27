@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JotterAPI.DAL.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,19 +49,18 @@ namespace JotterAPI.DAL.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<string>(nullable: true),
-                    CategoryId1 = table.Column<Guid>(nullable: true),
+                    CategoryId = table.Column<Guid>(nullable: false),
                     UserId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Notes_Categories_CategoryId1",
-                        column: x => x.CategoryId1,
+                        name: "FK_Notes_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Notes_Users_UserId",
                         column: x => x.UserId,
@@ -101,9 +100,9 @@ namespace JotterAPI.DAL.Migrations
                 column: "NoteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notes_CategoryId1",
+                name: "IX_Notes_CategoryId",
                 table: "Notes",
-                column: "CategoryId1");
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Notes_UserId",

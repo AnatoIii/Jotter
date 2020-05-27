@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace JotterAPI.Controllers
 {
 	[ApiController]
+	[Route("")]
 	public class UsersController : ControllerBase
 	{
 		private readonly IUserService _userService;
@@ -17,20 +18,20 @@ namespace JotterAPI.Controllers
 			_userService = userService;
 		}
 
-		[HttpPost("login")]
-		public Response<UserDataResult> Login(UserLoginCredentials userLoginCredential)
+		[HttpPost("/login")]
+		public Response<UserDataResult> Login([FromBody]UserLoginCredentials userLoginCredential)
 		{
 			return _userService.Login(userLoginCredential);
 		}
 
 		[HttpPost("register")]
-		public Task<Response<UserDataResult>> Register(UserRegisterCredentials userRegisterCredential)
+		public Task<Response<UserDataResult>> Register([FromBody]UserRegisterCredentials userRegisterCredential)
 		{
 			return _userService.Register(userRegisterCredential);
 		}
 
-		[HttpGet("user")]
-		public Response<UserDataResult> GetById(Guid id)
+		[HttpGet("user/{id}")]
+		public Response<UserDataResult> GetById([FromRoute] Guid id)
 		{
 			return _userService.GetById(id);
 		}

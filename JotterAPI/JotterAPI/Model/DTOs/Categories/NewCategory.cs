@@ -1,4 +1,6 @@
-﻿namespace JotterAPI.Model.DTOs.Categories
+﻿using System;
+
+namespace JotterAPI.Model.DTOs.Categories
 {
 	public class NewCategory
 	{

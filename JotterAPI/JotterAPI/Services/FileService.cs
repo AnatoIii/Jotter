@@ -27,7 +27,8 @@ namespace JotterAPI.Services
 				return new Response<FileResult>("Such user doesn't exist");
 			}
 			var note = _dbContext.Notes
-				.FirstOrDefault(note => note.Id == fileToSave.NoteId && note.UserId == fileToSave.UserId);
+				.Include(note => note.Category)
+				.FirstOrDefault(note => note.Id == fileToSave.NoteId && note.Category.UserId == fileToSave.UserId);
 			if (note == null) {
 				return new Response<FileResult>("Such note doesn't exist");
 			}
@@ -59,7 +60,8 @@ namespace JotterAPI.Services
 
 			var file = _dbContext.Files
 				.Include(file => file.Note)
-				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.UserId == fileIds.UserId);
+					.ThenInclude(note => note.Category)
+				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.Category.UserId == fileIds.UserId);
 
 			if (file == null) {
 				return new Response<FileDataResult>("Such file doesn't exist");
@@ -79,7 +81,7 @@ namespace JotterAPI.Services
 
 			var file = _dbContext.Files
 				.Include(file => file.Note)
-				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.UserId == fileIds.UserId);
+				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.Category.UserId == fileIds.UserId);
 
 			if (file == null) {
 				return new Response<ResponseResult>("Such file doesn't exist");

@@ -31,8 +31,7 @@ namespace JotterAPI.Services
 			var note = new Note {
 				Name = noteToCreate.Name,
 				Description = noteToCreate.Description,
-				CategoryId = noteToCreate.CategoryId,
-				UserId = noteToCreate.UserId
+				CategoryId = noteToCreate.CategoryId
 			};
 
 			_dbContext.Notes.Add(note);
@@ -50,7 +49,8 @@ namespace JotterAPI.Services
 
 			var note = _dbContext.Notes
 				.Include(note => note.Files)
-				.FirstOrDefault(note => note.Id == noteToEdit.Id && note.UserId == noteToEdit.UserId);
+				.Include(note => note.Category)
+				.FirstOrDefault(note => note.Id == noteToEdit.Id && note.Category.UserId == noteToEdit.UserId);
 			if (note == null) {
 				return new Response<NoteResult>("Such note doesn't exist");
 			}
@@ -71,7 +71,8 @@ namespace JotterAPI.Services
 			}
 
 			var note = _dbContext.Notes
-				.FirstOrDefault(note => note.Id == noteId.Id && note.UserId == noteId.UserId);
+				.Include(note => note.Category)
+				.FirstOrDefault(note => note.Id == noteId.Id && note.Category.UserId == noteId.UserId);
 			if (note == null) {
 				return new Response<ResponseResult>("Such note doesn't exist");
 			}
@@ -99,7 +100,8 @@ namespace JotterAPI.Services
 			}
 
 			var notes = _dbContext.Notes
-				.Where(note => note.CategoryId == categoryData.CategoryId && note.UserId == categoryData.UserId);
+				.Include(note => note.Category)
+				.Where(note => note.CategoryId == categoryData.CategoryId && note.Category.UserId == categoryData.UserId);
 			return new Response<NotesResult>(new NotesResult(notes));
 		}
 
@@ -112,7 +114,8 @@ namespace JotterAPI.Services
 
 			var note = _dbContext.Notes
 				.Include(note => note.Files)
-				.FirstOrDefault(note => note.Id == noteId.Id && note.UserId == noteId.UserId);
+				.Include(note => note.Category)
+				.FirstOrDefault(note => note.Id == noteId.Id && note.Category.UserId == noteId.UserId);
 
 			if (note == null) {
 				return new Response<NoteResult>("Such note doesn't exist");

@@ -26,7 +26,7 @@ namespace JotterAPI.Services
 				return new Response<UserDataResult>("User with such email doesn't exist");
 			}
 			if (user.Password != userLoginCredential.Password) {
-				new Response<UserDataResult>("Incorrect password");
+				return new Response<UserDataResult>("Incorrect password");
 			}
 
 			return new Response<UserDataResult>(new UserDataResult(user));

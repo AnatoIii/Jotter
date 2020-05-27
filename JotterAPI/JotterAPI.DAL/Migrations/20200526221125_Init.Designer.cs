@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JotterAPI.DAL.Migrations
 {
     [DbContext(typeof(JotterDbContext))]
-    [Migration("20200525212647_InitMigration")]
-    partial class InitMigration
+    [Migration("20200526221125_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,10 +71,7 @@ namespace JotterAPI.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CategoryId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("CategoryId1")
+                    b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
@@ -88,7 +85,7 @@ namespace JotterAPI.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId1");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -129,7 +126,7 @@ namespace JotterAPI.DAL.Migrations
 
             modelBuilder.Entity("JotterAPI.DAL.Model.File", b =>
                 {
-                    b.HasOne("JotterAPI.DAL.Model.Note", null)
+                    b.HasOne("JotterAPI.DAL.Model.Note", "Note")
                         .WithMany("Files")
                         .HasForeignKey("NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -140,7 +137,9 @@ namespace JotterAPI.DAL.Migrations
                 {
                     b.HasOne("JotterAPI.DAL.Model.Category", "Category")
                         .WithMany("Notes")
-                        .HasForeignKey("CategoryId1");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("JotterAPI.DAL.Model.User", null)
                         .WithMany("Notes")

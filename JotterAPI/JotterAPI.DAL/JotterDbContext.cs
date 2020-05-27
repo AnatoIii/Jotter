@@ -1,12 +1,18 @@
 ﻿using JotterAPI.DAL.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JotterAPI.DAL
 {
 	public class JotterDbContext : DbContext
 	{
-		public JotterDbContext(DbContextOptions options) : base(options) { }
+		public JotterDbContext(DbContextOptions options) : base(options) 
+		{
+			if (Database.GetPendingMigrations().Count() > 0) {
+				Database.Migrate();
+			}
+		}
 
 		public DbSet<User> Users { get; set; }
 

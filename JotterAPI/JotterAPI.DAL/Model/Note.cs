@@ -11,12 +11,8 @@ namespace JotterAPI.DAL.Model
 
         public Guid CategoryId { get; set; }
 
-        public Guid UserId { get; set; }
-
         public List<File> Files { get; set; }
 
         public Category Category { get; set; }
-
-        public User User { get; set; }
     }
 }
