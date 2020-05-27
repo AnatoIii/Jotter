@@ -13,6 +13,8 @@ namespace JotterAPI.Model.Reponses
 		{
 			Categories = categories.Select(c => new CategoryResult(c));
 		}
+
+		public CategoriesResult() { }
 	}
 
 	public class CategoryResult : ResponseResult
@@ -30,5 +32,7 @@ namespace JotterAPI.Model.Reponses
 			Name = category.Name;
 			IsLocked = category.Password != null;
 		}
+
+		public CategoryResult() { }
 	}
 }

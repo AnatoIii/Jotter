@@ -18,5 +18,7 @@ namespace JotterAPI.Model.Reponses
 			Name = user.Name;
 			Email = user.Email;
 		}
+
+		public UserDataResult() { }
 	}
 }

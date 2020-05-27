@@ -19,5 +19,7 @@
 			IsSuccessful = true;
 			ResponseResult = result;
 		}
+
+		public Response() { }
 	}
 }

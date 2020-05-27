@@ -15,6 +15,8 @@ namespace JotterAPI.Model.Reponses
 
 			FileName = file.Name;
 		}
+
+		public FileResult() { }
 	}
 
 	public class FileDataResult : ResponseResult
@@ -31,5 +33,7 @@ namespace JotterAPI.Model.Reponses
 			FileName = file.Name;
 			Base64File = base64File;
 		}
+
+		public FileDataResult() { }
 	}
 }
