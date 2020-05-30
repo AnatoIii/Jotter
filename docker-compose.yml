@@ -10,7 +10,7 @@ services:
       - dbdata:/var/opt/mssql
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Password
+      - SA_PASSWORD=MyBadPW123!
       - MSSQL_PID=Express
 
   jotterapi:
