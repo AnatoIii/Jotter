@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace Model
 {
-    public class User : Entity
+    [DataContract]
+    public class User
     {
         [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Email { get; set; }
+        [DataMember]
         public string Password { get; set; }
+        [XmlIgnore]
         public string PasswordSalt { get; set; }
 
+        [XmlIgnore]
         public List<Note> Notes { get; set; }
 
         public User(string name, string email, string password, string passwordSalt)

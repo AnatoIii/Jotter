@@ -13,7 +13,7 @@ services:
       - SA_PASSWORD=Password
       - MSSQL_PID=Express
 
-   jotterapi:
+  jotterapi:
     image: jotterapi:latest
     container_name: jotterapi
     depends_on:

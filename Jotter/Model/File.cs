@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
 
 namespace Model
 {
-    public class File : Entity
+    [DataContract]
+    public class File
     {
+        [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Path { get; set; }
 
         public File(string name, string path)

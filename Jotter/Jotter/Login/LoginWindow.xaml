@@ -6,28 +6,66 @@
         xmlns:local="clr-namespace:Jotter"
         mc:Ignorable="d"
         Title="Login" Height="400" Width="300">
-    <Window.Resources>
-        <local:LoginFormConverter x:Key="dataConverter"/>
-    </Window.Resources>
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-        <WrapPanel Orientation="Vertical" Width="200">
-            <TextBlock FontSize="25" Margin="0 0 0 10">Login</TextBlock>
-			
-            <TextBlock FontSize="18">Email</TextBlock>
-			<TextBox Name="Email" Width="200" FontSize="16" Padding="5 3" Text="{Binding Path=Login.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
-			
-            <TextBlock FontSize="18">Password</TextBlock>
-            <PasswordBox Name="Password" Width="200" FontSize="16" Padding="5 3" PasswordChar="*" />
-			
-            <Button Width="200" FontSize="16" Padding="5 3" Margin="0 10 0 0"
-                    Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Content="Log in">
-                <Button.IsEnabled>
-                    <MultiBinding Converter="{StaticResource dataConverter}" Mode="TwoWay">
-                        <Binding ElementName="Email" Path="Text" UpdateSourceTrigger="PropertyChanged" />
-                        <!--<Binding ElementName="Password" UpdateSourceTrigger="PropertyChanged" />-->
-                    </MultiBinding>
-                </Button.IsEnabled>
-            </Button>
-        </WrapPanel>
-    </Grid>
+	<Window.Resources>
+		<local:LoginFormConverter x:Key="dataConverter"/>
+		<local:MultiParameterConverter x:Key="multiParameterConverter"/>
+	</Window.Resources>
+	<Grid>
+		<TabControl>
+			<TabItem VerticalAlignment="Stretch" HorizontalAlignment="Center" Header="Login">
+				<WrapPanel Orientation="Vertical" Width="200" VerticalAlignment="Center">
+					<TextBlock FontSize="25" Margin="0 0 0 10">Login</TextBlock>
+
+					<TextBlock FontSize="18">Email</TextBlock>
+					<TextBox Name="Email" Width="200" FontSize="16" Padding="5 3" Text="{Binding Path=Login.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+					<TextBlock FontSize="18">Password</TextBlock>
+					<PasswordBox Name="Password" Width="200" FontSize="16" Padding="5 3" PasswordChar="*" />
+
+					<Button Width="200" FontSize="16" Padding="5 3" Margin="0 10 0 0"
+							Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=Password}" Content="Log in">
+						<Button.IsEnabled>
+							<MultiBinding Converter="{StaticResource dataConverter}" Mode="TwoWay">
+								<Binding ElementName="Email" Path="Text" UpdateSourceTrigger="PropertyChanged" />
+								<!--<Binding ElementName="Password" UpdateSourceTrigger="PropertyChanged" />-->
+							</MultiBinding>
+						</Button.IsEnabled>
+					</Button>
+				</WrapPanel>
+			</TabItem>
+			<TabItem VerticalAlignment="Stretch" HorizontalAlignment="Center" Header="Register">
+				<WrapPanel Orientation="Vertical" Width="200" VerticalAlignment="Center">
+					<TextBlock FontSize="25" Margin="0 0 0 10">Register</TextBlock>
+
+					<TextBlock FontSize="18">Email</TextBlock>
+					<TextBox Name="EmailRegister"  Width="200" FontSize="16" Padding="5 3" Text="{Binding Path=Register.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+					<TextBlock FontSize="18">Name</TextBlock>
+					<TextBox Width="200" FontSize="16" Padding="5 3" Text="{Binding Path=Register.Name}"/>
+
+					<TextBlock FontSize="18">Password</TextBlock>
+					<PasswordBox Name="Password1" Width="200" FontSize="16" Padding="5 3" PasswordChar="*" />
+
+					<TextBlock FontSize="18">Repeat password</TextBlock>
+					<PasswordBox Name="Password2" Width="200" FontSize="16" Padding="5 3" PasswordChar="*" />
+
+					<Button Width="200" FontSize="16" Padding="5 3" Margin="0 10 0 0"
+						Command="{Binding RegisterCommand}" Content="Sign up">
+						<Button.CommandParameter>
+							<MultiBinding Converter="{StaticResource multiParameterConverter}">
+								<Binding ElementName="Password1"/>
+								<Binding ElementName="Password2"/>
+							</MultiBinding>
+						</Button.CommandParameter>
+						<Button.IsEnabled>
+							<MultiBinding Converter="{StaticResource dataConverter}" Mode="TwoWay">
+								<Binding ElementName="EmailRegister" Path="Text" UpdateSourceTrigger="PropertyChanged" />
+								<!--<Binding ElementName="Password" UpdateSourceTrigger="PropertyChanged" />-->
+							</MultiBinding>
+						</Button.IsEnabled>
+					</Button>
+				</WrapPanel>
+			</TabItem>
+		</TabControl>
+	</Grid>
 </Window>

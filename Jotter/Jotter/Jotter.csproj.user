@@ -7,11 +7,29 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddCategory\AddCategoryWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AppWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EnterCategoryPassword\EnterCategoryPasswordWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainWindow\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddCategory\AddCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AppWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EnterCategoryPassword\EnterCategoryPasswordWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Login\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

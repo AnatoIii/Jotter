@@ -1,16 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace Model
 {
-    public class Note : Entity
+    [DataContract]
+    public class Note
     {
+        [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Description { get; set; }
-        public string CategoryId { get; set; }
+        [DataMember]
+        public Guid CategoryId { get; set; }
 
+        [XmlIgnore]
         public List<File> Files { get; set; }
+        [XmlIgnore]
         public Category Category { get; set; }
 
         public Note(string name, string description, Category category)
@@ -24,7 +33,6 @@ namespace Model
 
         public Note()
         {
-            Id = Guid.NewGuid();
             Files = new List<File>();
         }
 

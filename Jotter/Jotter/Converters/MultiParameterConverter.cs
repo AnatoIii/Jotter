@@ -1,15 +1,19 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Data;
 
 namespace Jotter
 {
-    public class LoginFormConverter : IMultiValueConverter
+    public class MultiParametes
     {
-        private Regex _emailRegex = new Regex("^[a-z0-9][.a-z0-9]*[a-z0-9]@[a-z0-9][-a-z0-9]*[a-z0-9][.][a-z0-9]{1,5}", RegexOptions.IgnoreCase);
+        public object Parameter1 { get; set; }
+        public object Parameter2 { get; set; }
+    }
+
+	public class MultiParameterConverter : IMultiValueConverter
+	{
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return _emailRegex.IsMatch(values[0].ToString());
+            return new MultiParametes { Parameter1 = values[0], Parameter2 = values[1] };
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)

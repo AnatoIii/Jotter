@@ -3,7 +3,6 @@ using Model;
 using Model.ModelData;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BL.Serializer.Factory
 {
@@ -34,7 +33,7 @@ namespace BL.Serializer.Factory
 
 		public string GetSerializerData(SerializerType serializerType)
 		{
-			return $"{_fileNames[typeof(T)]}{_extensions[serializerType]}";
+			return $"{_fileNames[typeof(T)]}.{_extensions[serializerType]}";
 		}
 	}
 }

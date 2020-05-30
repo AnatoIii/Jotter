@@ -1,15 +1,5 @@
-﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BL;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Jotter.MainWindow
 {
@@ -18,13 +8,11 @@ namespace Jotter.MainWindow
 	/// </summary>
 	public partial class MainForm : Window
 	{
-		public MainForm()
+		public MainForm(IStorage storage)
 		{
-			InitializeComponent();
-			categoriesList.ItemsSource = new List<string> { "asd", "asd", "asd" };
-			lVNotesData.ItemsSource = new List<Note> { new Note("Some data", "description", null)  };
+			DataContext = new MainViewModel(storage);
 
-			DataContext = new MainViewModel();
+			InitializeComponent();
 		}
 	}
 }

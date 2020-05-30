@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace Jotter.Model
 {
-	public class NoteEdit : INotifyPropertyChanged
+    public class NoteEdit : INotifyPropertyChanged
     {
         public Guid Id { get; set; }
 
@@ -20,7 +18,7 @@ namespace Jotter.Model
             }
         }
         public string Description { get; set; }
-        public string CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         //public List<File> Files { get; set; }
         //public Category Category { get; set; }

@@ -3,8 +3,6 @@ using BL.Response.Responses;
 using Model;
 using Model.DTO;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BL
 {
@@ -16,7 +14,9 @@ namespace BL
 		Result<LoginResponse> LogIn(UserLoginModel loginData);
 
 		Result<CategoryResponse> SaveCategory(Category category);
+		Result<CategoriesResponse> GetCategories();
 
+		Result<NotesResponse> GetNotesByCategoryId(Guid categoryId);
 		Result<NoteResponse> SaveNote(NoteData noteData);
 		Result<NoteResponse> DeleteNote(Guid noteId);
 	}

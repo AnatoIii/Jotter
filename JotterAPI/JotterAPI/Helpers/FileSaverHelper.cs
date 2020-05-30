@@ -2,7 +2,6 @@
 using JotterAPI.Model;
 using System;
 using System.IO;
-using System.Text;
 
 namespace JotterAPI.Helpers
 {
@@ -57,7 +56,7 @@ namespace JotterAPI.Helpers
 			var dotIndex = extension.LastIndexOf('.');
 			var extensionString = dotIndex == -1 ? "uf" : extension.Substring(dotIndex);
 
-			return $"{Guid.NewGuid()}_{dateString}.{extensionString}";
+			return $"{Guid.NewGuid()}_{dateString}{extensionString}";
 		}
 	}
 }

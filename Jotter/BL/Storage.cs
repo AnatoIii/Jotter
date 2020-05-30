@@ -104,14 +104,13 @@ namespace BL
 
 		#region Notes
 
-		public Result<NoteResponse> GetNotesByCategoryId(Guid categoryId)
+		public Result<NotesResponse> GetNotesByCategoryId(Guid categoryId)
 		{
-			var notes = _notes.Where(note => note.Category.Id == categoryId);
+			var notes = _notes.Where(note => note.CategoryId == categoryId);
 
-
-			return new Result<NoteResponse> {
+			return new Result<NotesResponse> {
 				IsSuccessful = true,
-				Response = new NoteResponse {
+				Response = new NotesResponse {
 					Notes = notes
 				}
 			};
@@ -119,23 +118,26 @@ namespace BL
 
 		public Result<NoteResponse> SaveNote(NoteData noteData)
 		{
-			if (noteData.Id != null) {
+			if (noteData.Id != new Guid()) {
 				var currentNote = _notes.FirstOrDefault(note => note.Id == noteData.Id);
 
 				currentNote.Name = noteData.Name ?? currentNote.Name;
 				currentNote.Description = noteData.Description ?? currentNote.Description;
+				SaveNotes();
 
 				return new Result<NoteResponse> {
 					IsSuccessful = true,
 					Response = new NoteResponse {
+						Note = currentNote
 					}
 				};
 			}
 
 			var newNote = new Note { 
+				Id = Guid.NewGuid(),
 				Name = noteData.Name,
 				Description = noteData.Description,
-				Category = noteData.Category
+				CategoryId = noteData.CategoryId
 			};
 
 			_notes.Add(newNote);
@@ -144,6 +146,7 @@ namespace BL
 			return new Result<NoteResponse> {
 				IsSuccessful = true,
 				Response = new NoteResponse {
+					Note = newNote
 				}
 			};
 		}
@@ -168,16 +171,23 @@ namespace BL
 
 		public Result<CategoryResponse> SaveCategory(Category category)
 		{
-			var newCategory = new Category {
-				Name = category.Name
-			};
-
-			_categories.Add(newCategory);
+			_categories.Add(category);
 			SaveCategories();
 
 			return new Result<CategoryResponse> {
 				IsSuccessful = true,
 				Response = new CategoryResponse {
+					Category = category
+				}
+			};
+		}
+
+		public Result<CategoriesResponse> GetCategories()
+		{
+			return new Result<CategoriesResponse> {
+				IsSuccessful = true,
+				Response = new CategoriesResponse {
+					Categories = _categories
 				}
 			};
 		}

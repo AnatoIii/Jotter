@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
 
 namespace Model
 {
-    public class Category : Entity
+    [DataContract]
+    public class Category
     {
+        [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Password { get; set; }
+
+        public bool IsPrivate { get; set; }
 
         public Category(string name, string password = null)
         {
@@ -18,7 +24,11 @@ namespace Model
 
         public Category()
         {
-            Id = Guid.NewGuid();
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
