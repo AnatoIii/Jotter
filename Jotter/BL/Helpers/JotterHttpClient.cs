@@ -1,7 +1,5 @@
 ﻿using BL.Errors;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +11,10 @@ namespace BL.Helpers
 		private readonly HttpClient _httpClient;
 		private readonly string _serverUrl;
 
-		public JotterHttpClient()
+		public JotterHttpClient(string serverUrl)
 		{
 			_httpClient = new HttpClient();
+			_serverUrl = serverUrl;
 		}
 
 		#region Get

@@ -95,7 +95,7 @@ namespace JotterAPI.Services
 			if (category == null) {
 				return new Response<NotesResult>("Such category doesn't exist");
 			}
-			if (category.Password == categoryData.CategoryPassword) { // Password hashing
+			if (!string.IsNullOrWhiteSpace(category.Password) && category.Password != categoryData.CategoryPassword) { // Password hashing
 				return new Response<NotesResult>("Incorrect category password");
 			}
 

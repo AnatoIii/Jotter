@@ -1,5 +1,6 @@
 ﻿using JotterAPI.DAL;
 using JotterAPI.DAL.Model;
+using JotterAPI.Helpers.Abstractions;
 using JotterAPI.Model.DTOs.User;
 using JotterAPI.Model.Reponses;
 using JotterAPI.Services.Abstractions;
@@ -11,8 +12,11 @@ namespace JotterAPI.Services
 {
 	public class UserService : BaseService, IUserService
 	{
-		public UserService(JotterDbContext dbContext) : base(dbContext)
+		private readonly IPasswordHasher _passwordHasher;
+
+		public UserService(JotterDbContext dbContext, IPasswordHasher passwordHasher) : base(dbContext)
 		{
+			_passwordHasher = passwordHasher;
 		}
 
 		public Response<UserDataResult> Login(UserLoginCredentials userLoginCredential)
@@ -25,7 +29,7 @@ namespace JotterAPI.Services
 			if (user == null) {
 				return new Response<UserDataResult>("User with such email doesn't exist");
 			}
-			if (user.Password != userLoginCredential.Password) {
+			if (!_passwordHasher.ArePasswordsTheSame(userLoginCredential.Password, user.PasswordSalt, user.Password)) {
 				return new Response<UserDataResult>("Incorrect password");
 			}
 
@@ -41,12 +45,14 @@ namespace JotterAPI.Services
 				return new Response<UserDataResult>("User with such email already registered");
 			}
 
+			var (passwordHash, salt) = _passwordHasher.HashPassword(userRegisterCredential.Password);
+
 			var user = new User {
 				Email = userRegisterCredential.Email,
-				Password = userRegisterCredential.Password,
-				Name = userRegisterCredential.Name
+				Password = passwordHash,
+				Name = userRegisterCredential.Name,
+				PasswordSalt = salt
 			};
-			// Here should be password hashing
 
 			_dbContext.Users.Add(user);
 			await _dbContext.SaveChangesAsync();

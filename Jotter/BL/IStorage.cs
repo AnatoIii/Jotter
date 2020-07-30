@@ -2,7 +2,9 @@
 using BL.Response.Responses;
 using Model;
 using Model.DTO;
+using Model.Responses;
 using System;
+using System.Threading.Tasks;
 
 namespace BL
 {
@@ -10,14 +12,19 @@ namespace BL
 	{
 		bool IsUserLoggedIn();
 		User GetUser();
-		Result<RegisterResponse> Register(UserRegisterModel loginData);
-		Result<LoginResponse> LogIn(UserLoginModel loginData);
+		Task<Response<UserDataResult>> Register(UserRegisterModel loginData);
+		Task<Response<UserDataResult>> LogIn(UserLoginModel loginData);
 
-		Result<CategoryResponse> SaveCategory(Category category);
-		Result<CategoriesResponse> GetCategories();
+		Task<Result<CategoryResponse>> SaveCategory(Category category);
+		Task<Result<CategoriesResponse>> GetCategories();
 
-		Result<NotesResponse> GetNotesByCategoryId(Guid categoryId);
-		Result<NoteResponse> SaveNote(NoteData noteData);
+		Task<Result<NotesResponse>> GetNotesByCategory(Guid categoryId, string categoryPassword = null);
+		Task<Result<NoteResponse>> SaveNote(NoteData noteData);
+		Task<Result<NoteResponse>> GetNoteById(Guid noteId);
 		Result<NoteResponse> DeleteNote(Guid noteId);
+
+		Task<Result<EmptyResponse>> SaveFile(string path, Guid noteId);
+		Task<Result<EmptyResponse>> OpenFile(Guid fileId);
+		Task<Result<EmptyResponse>> DeleteFile(Guid FileId);
 	}
 }

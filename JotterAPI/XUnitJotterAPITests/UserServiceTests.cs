@@ -1,5 +1,7 @@
-﻿using JotterAPI.Model.DTOs.User;
+﻿using JotterAPI.Helpers.Abstractions;
+using JotterAPI.Model.DTOs.User;
 using JotterAPI.Services;
+using Moq;
 using System;
 using System.Linq;
 using Xunit;
@@ -11,7 +13,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceLogin_When_CorrectUser_Then_GetUser()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "test.user@gmail.com",
@@ -29,7 +32,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceLogin_When_IncorrectEmail_Then_Error()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "incorrect@gmail.com",
@@ -46,7 +50,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceLogin_When_WrongPassword_Then_Error()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "test.user@gmail.com",
@@ -63,7 +68,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceRegister_When_EmailExists_Then_Error()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userRegisterCredentials = new UserRegisterCredentials {
 				Email = "test.user@gmail.com",
@@ -81,7 +87,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceRegister_When_NewUser_Then_GetUser()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userRegisterCredentials = new UserRegisterCredentials {
 				Email = Guid.NewGuid() + "test.user@gmail.com",
@@ -101,7 +108,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceGetById_When_UserNotExist_Then_Error()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userResponse = userService.GetById(Guid.NewGuid());
 
@@ -113,7 +121,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceGetById_When_UserExists_Then_GetUser()
 		{
-			var userService = new UserService(_dbContext);
+			var passwordHasherMock = new Mock<IPasswordHasher>();
+			var userService = new UserService(_dbContext, passwordHasherMock.Object);
 
 			var userResponse = userService.GetById(Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"));
 

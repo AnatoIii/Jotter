@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Jotter.MainWindow"
 		xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainForm" Height="450" Width="800">
+        Title="Jotter" Height="450" Width="800">
 	<Window.Resources>
 		<local:MainWindowDataVisibilityConverter x:Key="WindowState" />
 	</Window.Resources>
@@ -93,6 +93,7 @@
 									Grid.Column="1"
 									Margin="3"
 									Command="{Binding DataContext.AttachFileCommand, ElementName=NotesListView}"
+									CommandParameter="{Binding}"
 								>
 									Attach file
 								</Button>
@@ -151,8 +152,7 @@
 				<RowDefinition Height="30"/>
 				<RowDefinition Height="50"/>
 				<RowDefinition Height="*"/>
-				<RowDefinition Height="30"/>
-				<RowDefinition Height="150"/>
+				<RowDefinition Height="180"/>
 			</Grid.RowDefinitions>
 
 			<Button VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5 0 0 0" Width="40" Command="{Binding GetBackCommand}">Back</Button>
@@ -161,8 +161,19 @@
 				<TextBlock VerticalAlignment="Center" FontWeight="Bold" Margin="10 0 0 0" FontSize="16"  Text="{Binding Path=SelectedNote.Name}"></TextBlock>
 				<TextBlock VerticalAlignment="Top" Margin="10 0 0 0" FontSize="16" Text="{Binding Path=SelectedNote.Description}"></TextBlock>
 			</StackPanel>
-			
-			<TextBlock VerticalAlignment="Center" FontWeight="Bold" Grid.Row="3" Margin="10 0 0 0" FontSize="16" Grid.ColumnSpan="2">Attachments</TextBlock>
+
+			<StackPanel Grid.Row="3" Grid.ColumnSpan="2">
+				<TextBlock VerticalAlignment="Center" FontWeight="Bold" Margin="10 0 0 0" FontSize="16">Attachments</TextBlock>
+				<ListView Margin="3" ItemsSource="{Binding Path=SelectedNote.Files}" Grid.Row="1" Grid.ColumnSpan="2" SelectedItem="{Binding SelectedFile}">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<StackPanel>
+								<TextBlock Text="{Binding Name}" FontSize="14" Padding="0"/>
+							</StackPanel>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackPanel>
 		</Grid>
 	</Grid>
 </Window>

@@ -1,6 +1,10 @@
 ﻿namespace BL.Response
 {
-	public class Response
+	public abstract class Response
+	{
+	}
+
+	public class EmptyResponse : Response
 	{
 	}
 }

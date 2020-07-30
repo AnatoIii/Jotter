@@ -1,0 +1,14 @@
+runtime: custom
+env: flex
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+beta_settings:
+  cloud_sql_instances: jotter-278509:europe-west3:jotter-db=tcp:1433
+env_variables:
+  ConnectionStrings__JotterDbContext: User Id=sqlserver;Password=MyBadPW123!;Server=cloudsql;Database=jotter
+service: jotter
+#Data Source=34.89.164.206;Initial Catalog=jotter;User ID=sqlserver;Password=MyBadPW123!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False

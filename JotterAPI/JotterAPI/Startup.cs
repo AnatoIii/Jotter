@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Diagnostics;
 
 namespace JotterAPI
 {
@@ -31,6 +33,7 @@ namespace JotterAPI
 			services.AddTransient<IUserService, UserService>();
 			services.AddTransient<INoteService, NotesService>();
 			services.AddTransient<IFileWorker, FileSaverHelper>();
+			services.AddTransient<IPasswordHasher, PasswordHasher>();
 
 			services.AddDbContext<JotterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JotterDbContext")));
 		}

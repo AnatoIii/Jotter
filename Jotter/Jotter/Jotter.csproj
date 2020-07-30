@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Google-Noto-Emoji-Objects-62864-notebook.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

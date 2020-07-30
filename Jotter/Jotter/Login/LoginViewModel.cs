@@ -23,7 +23,7 @@ namespace Jotter
             get
             {
                 return _loginCommand ??
-                    (_loginCommand = new Command(obj =>
+                    (_loginCommand = new Command(async obj =>
                     {
                         var password = (obj as PasswordBox).Password;
                         if (password.Length < 8)
@@ -32,12 +32,13 @@ namespace Jotter
                             return;
                         }
 
-                        var loginResponse = _storage.LogIn(new UserLoginModel { Email = Login.Email, Password = password });
+                        var loginResponse = await _storage.LogIn(new UserLoginModel { Email = Login.Email, Password = password });
+
                         if (loginResponse.IsSuccessful) {
                             _formStatus = FormStatus.ClosedDueToActions;
                             _window.Hide();
                         } else {
-                            MessageBox.Show(loginResponse.ErrorMessage);
+                            MessageBox.Show(loginResponse.Error);
                         }
                     })
                 );
@@ -49,7 +50,7 @@ namespace Jotter
         {
             get {
                 return _registerCommand ??
-                    (_registerCommand = new Command(obj => {
+                    (_registerCommand = new Command(async obj => {
                         var passwordBoxes = (obj as MultiParametes);
                         var pass1 = (passwordBoxes.Parameter1 as PasswordBox).Password;
                         var pass2 = (passwordBoxes.Parameter1 as PasswordBox).Password;
@@ -69,13 +70,15 @@ namespace Jotter
                             return;
                         }
 
-                        var registerResponse = _storage.Register(new UserRegisterModel { Email = Register.Email, Password = pass1, Name = Register.Name });
+                        var registerResponse = await _storage.Register(
+                            new UserRegisterModel { Email = Register.Email, Password = pass1, Name = Register.Name }
+                        );
 
                         if (registerResponse.IsSuccessful) {
                             _formStatus = FormStatus.ClosedDueToActions;
                             _window.Hide();
                         } else {
-                            MessageBox.Show(registerResponse.ErrorMessage);
+                            MessageBox.Show(registerResponse.Error);
                         }
                     })
                 );

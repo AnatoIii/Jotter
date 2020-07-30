@@ -11,6 +11,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace Jotter.MainWindow
@@ -27,7 +28,7 @@ namespace Jotter.MainWindow
         public string CreateEditNoteText { get; set; }
 
         public ObservableCollection<Note> CategoryNotes { get; set; }
-        public ObservableCollection<Category> CategoriesCollection { get; }
+        public ObservableCollection<Category> CategoriesCollection { get; private set;  }
 
         public MainViewModel(IStorage storage)
         {
@@ -36,10 +37,18 @@ namespace Jotter.MainWindow
             MainWindowState = MainWindowStates.NotesShowing;
             SavingNoteData = new NoteEdit();
 
-            CategoriesCollection = new ObservableCollection<Category>(_storage.GetCategories().Response.Categories);
+            LoadCategories();
+
             CategoryNotes = new ObservableCollection<Note>();
 
             CreateNoteButtonVisibility = Visibility.Hidden;
+        }
+
+        private async Task LoadCategories()
+        {
+            var categoriesReponse = await _storage.GetCategories();
+            CategoriesCollection = new ObservableCollection<Category>(categoriesReponse.Response.Categories);
+            OnPropertyChanged("CategoriesCollection");
         }
 
         private Category _selectedCategory;
@@ -49,36 +58,68 @@ namespace Jotter.MainWindow
             }
             set {
                 _selectedCategory = value;
-                
-                if (_selectedCategory.IsPrivate) {
-                    var viewModel = new EnterCategoryPasswordWindowViewModel(_selectedCategory.Name);
-                    var window = new EnterCategoryPasswordWindow(viewModel);
-                    bool confirmed = false;
-                    while (!confirmed) {
-                        if (window.ShowDialog() == true) {
-                            confirmed = true;
-                        }
-
-                        var password = window.GetCategoryPassword();
-                        //_storage.TryGetPasswordedCategoryNote(new CategoryData { Id = _selectedCategory.Id, Password = password });
-                        var categoryGetNotesResponse = _storage.GetNotesByCategoryId(value.Id);
-                        if (!categoryGetNotesResponse.IsSuccessful) {
-                            MessageBox.Show("Incorrect password!");
-                            continue;
-                        }
-                        CategoryNotes = new ObservableCollection<Note>(categoryGetNotesResponse.Response.Notes);
-                    }
-                } else {
-                    CategoryNotes = new ObservableCollection<Note>(_storage.GetNotesByCategoryId(value.Id).Response.Notes);
-                }
-
-                OnPropertyChanged("SelectedCategory");
-                CreateNoteButtonVisibility = Visibility.Visible;
-                OnPropertyChanged("CreateNoteButtonVisibility");
-                
-                OnPropertyChanged("CategoryNotes");
-                MainWindowState = MainWindowStates.NotesShowing;
+                UpdateSelectedCategoryNotes(value.Id);
             }
+        }
+
+        private File _selectedFile;
+        public File SelectedFile
+        {
+            get {
+                return _selectedFile;
+            }
+            set {
+                _selectedFile = value;
+
+                OpenFileCommand.Execute(value);
+            }
+        }
+
+        private Command _openFileCommand;
+        public Command OpenFileCommand
+        {
+            get {
+                return _openFileCommand ??
+                    (_openFileCommand = new Command(async obj => {
+                        var response = await _storage.OpenFile(((File)obj).Id);
+                        if (!response.IsSuccessful) {
+                            MessageBox.Show(response.ErrorMessage);
+                            return;
+                        }
+                    })
+                );
+            }
+        }
+
+        private async Task UpdateSelectedCategoryNotes(Guid categoryId)
+        {
+            if (_selectedCategory.IsPrivate) {
+                var viewModel = new EnterCategoryPasswordWindowViewModel(_selectedCategory.Name);
+                var window = new EnterCategoryPasswordWindow(viewModel);
+                bool confirmed = false;
+                while (!confirmed) {
+                    window.ShowDialog();
+                    var password = window.GetCategoryPassword();
+                    var categoryGetNotesResponse = await _storage.GetNotesByCategory(categoryId, password);
+                    if (!categoryGetNotesResponse.IsSuccessful) {
+                        MessageBox.Show(categoryGetNotesResponse.ErrorMessage);
+                        continue;
+                    }
+                    CategoryNotes = new ObservableCollection<Note>(categoryGetNotesResponse.Response.Notes);
+                    confirmed = true;
+                    window.Close();
+                }
+            } else {
+                var notesResponse = await _storage.GetNotesByCategory(categoryId);
+                CategoryNotes = new ObservableCollection<Note>(notesResponse.Response.Notes);
+            }
+
+            OnPropertyChanged("SelectedCategory");
+            CreateNoteButtonVisibility = Visibility.Visible;
+            OnPropertyChanged("CreateNoteButtonVisibility");
+
+            OnPropertyChanged("CategoryNotes");
+            MainWindowState = MainWindowStates.NotesShowing;
         }
 
         public MainWindowStates MainWindowState
@@ -95,7 +136,7 @@ namespace Jotter.MainWindow
         {
             get {
                 return _editNoteCommand ??
-                    (_editNoteCommand = new Command(obj => {
+                    (_editNoteCommand = new Command(async obj => {
                         if (_selectedCategory == null) {
                             MessageBox.Show("Select category first!");
                             return;
@@ -112,7 +153,7 @@ namespace Jotter.MainWindow
                             Name = SavingNoteData.Name
                         };
 
-                        var noteSaveResponse = _storage.SaveNote(note);
+                        var noteSaveResponse = await _storage.SaveNote(note);
                         if (!noteSaveResponse.IsSuccessful) {
                             MessageBox.Show(noteSaveResponse.ErrorMessage);
                             return;
@@ -122,7 +163,8 @@ namespace Jotter.MainWindow
                             CategoryNotes.Add(noteSaveResponse.Response.Note);
                         } else {
                             var noteId = noteSaveResponse.Response.Note.Id;
-                            CategoryNotes.Where(note => note.Id == noteId).ToList().ForEach(note => note = noteSaveResponse.Response.Note);
+                            CategoryNotes = new ObservableCollection<Note>(CategoryNotes.Select(note => (note.Id == noteId ? note = noteSaveResponse.Response.Note : note)));
+                            var data = CategoryNotes.Where(note => note.Id == noteId).ToList();
                         }
 
                         UpdateCategoryList();
@@ -137,7 +179,7 @@ namespace Jotter.MainWindow
         {
             get {
                 return _createCategoryCommand ??
-                    (_createCategoryCommand = new Command(obj => {
+                    (_createCategoryCommand = new Command(async obj => {
                         var addCategoryWindow = new StandardKernel().Get<AddCategoryWindow>();
 
                         addCategoryWindow.ShowDialog();
@@ -147,9 +189,10 @@ namespace Jotter.MainWindow
                             return;
                         }
 
-                        var category = new Category(dialogResponse.Category.Name, dialogResponse.Category.Password);
-
-                        var categorySaveResponse = _storage.SaveCategory(category);
+                        var categorySaveResponse = await _storage.SaveCategory(new Category { 
+                            Name = dialogResponse.Category.Name,
+                            Password = dialogResponse.Category.Password 
+                        });
 
                         if(!categorySaveResponse.IsSuccessful) {
                             MessageBox.Show(categorySaveResponse.ErrorMessage);
@@ -207,13 +250,19 @@ namespace Jotter.MainWindow
         {
             get {
                 return _attachFileCommand ??
-                    (_attachFileCommand = new Command(obj => {
+                    (_attachFileCommand = new Command(async obj => {
                         var fileDialog = new OpenFileDialog();
                         fileDialog.InitialDirectory = "C:";
                         fileDialog.Multiselect = false;
 
                         if (fileDialog.ShowDialog() == true) {
-                            var file = fileDialog.FileName;
+                            var response = await _storage.SaveFile(fileDialog.FileName, ((Note)obj).Id);
+                            if (!response.IsSuccessful) {
+                                MessageBox.Show(response.ErrorMessage);
+                                return;
+                            }
+
+                            MessageBox.Show("File sucessfully saved :)");
                         }
                     })
                 );
@@ -235,9 +284,14 @@ namespace Jotter.MainWindow
         {
             get {
                 return _viewFullNoteCommand ??
-                    (_viewFullNoteCommand = new Command(obj => {
+                    (_viewFullNoteCommand = new Command(async obj => {
                         MainWindowState = MainWindowStates.NoteViewing;
-                        SelectedNote = (Note)obj;
+                        var response = await _storage.GetNoteById(((Note)obj).Id);
+                        if (!response.IsSuccessful) {
+                            MessageBox.Show(response.ErrorMessage);
+                            return;
+                        }
+                        SelectedNote = response.Response.Note;
                         OnPropertyChanged("SelectedNote");
                     })
                 );

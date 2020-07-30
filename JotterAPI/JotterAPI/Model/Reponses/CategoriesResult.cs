@@ -30,7 +30,7 @@ namespace JotterAPI.Model.Reponses
 		{
 			Id = category.Id;
 			Name = category.Name;
-			IsLocked = category.Password != null;
+			IsLocked = !string.IsNullOrWhiteSpace(category.Password);
 		}
 
 		public CategoryResult() { }

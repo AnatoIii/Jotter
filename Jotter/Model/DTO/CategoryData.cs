@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JotterAPI.Model.DTOs.Notes
+namespace Model.DTO
 {
 	public class CategoryData
 	{
@@ -8,6 +8,6 @@ namespace JotterAPI.Model.DTOs.Notes
 
 		public Guid UserId { get; set; }
 
-		public string? CategoryPassword { get; set; }
+		public string CategoryPassword { get; set; }
 	}
 }
