@@ -23,6 +23,7 @@ namespace JotterAPI.Helpers
 
 			var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
 			byte[] hash = pbkdf2.GetBytes(20);
+			Console.WriteLine(Convert.ToBase64String(hash));
 
 			return Convert.ToBase64String(hash) == hashString;
 		}

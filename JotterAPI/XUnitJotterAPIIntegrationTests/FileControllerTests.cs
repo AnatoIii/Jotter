@@ -10,25 +10,26 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using XUnitJotterAPIIntegrationTests.WebApplicationFactory;
 
 namespace XUnitJotterAPIIntegrationTests
 {
-    public class FileControllerTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class FileControllerTests : IClassFixture<JotterWebApplicationFactory<Startup>>
     {
         private HttpClient _client;
         private User _dbUser;
         private Guid _noteId;
 
-        public FileControllerTests(WebApplicationFactory<Startup> factory)
+        public FileControllerTests(JotterWebApplicationFactory<Startup> factory)
         {
             _client = factory.CreateClient();
-            _dbUser = new User {
-                Id = Guid.Parse("72FBC0E3-A81F-4036-A54D-9A1B42FC48A1"),
-                Name = "Test User",
-                Email = "test@gmail.com",
-                Password = "RandomPassword"
+            _dbUser = new User
+            {
+                Id = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"),
+                Email = "test.user@gmail.com",
+                Name = "Test User"
             };
-            _noteId = Guid.Parse("E9C6B5E4-1C8D-4DFD-B382-F9C4387D7E8F");
+            _noteId = Guid.Parse("2E20F240-ADD6-496F-A2BD-794043D94940");
         }
 
         [Fact]

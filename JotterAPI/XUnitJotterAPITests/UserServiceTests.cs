@@ -1,4 +1,5 @@
-﻿using JotterAPI.Helpers.Abstractions;
+﻿using JotterAPI.Helpers;
+using JotterAPI.Helpers.Abstractions;
 using JotterAPI.Model.DTOs.User;
 using JotterAPI.Services;
 using Moq;
@@ -13,8 +14,8 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceLogin_When_CorrectUser_Then_GetUser()
 		{
-			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var passwordHasher = new PasswordHasher();
+			var userService = new UserService(_dbContext, passwordHasher);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "test.user@gmail.com",

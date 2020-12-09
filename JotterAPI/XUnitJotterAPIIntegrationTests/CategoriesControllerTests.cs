@@ -12,24 +12,26 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using XUnitJotterAPIIntegrationTests.WebApplicationFactory;
 
 namespace XUnitJotterAPIIntegrationTests
 {
-    public class CategoriesControllerTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class CategoriesControllerTests : IClassFixture<JotterWebApplicationFactory<Startup>>
     {
         private HttpClient _client;
         private User _dbUser;
         private Guid _categoryId;
 
-        public CategoriesControllerTests(WebApplicationFactory<Startup> factory)
+        public CategoriesControllerTests(JotterWebApplicationFactory<Startup> factory)
         {
-            _categoryId = Guid.Parse("C7709E39-4FF9-4DC3-B976-260097B74C5C");
+            _categoryId = Guid.Parse("F9A27BE9-3771-4AAE-89C8-444D4D5F828F");
             _client = factory.CreateClient();
-            _dbUser = new User {
-                Id = Guid.Parse("72FBC0E3-A81F-4036-A54D-9A1B42FC48A1"),
-                Name = "Test User",
-                Email = "test@gmail.com",
-                Password = "RandomPassword"
+            _dbUser = new User
+            {
+                Id = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"),
+                Email = "test.user@gmail.com",
+                Password = "12345678",
+                Name = "Test User"
             };
         }
 

@@ -2,8 +2,9 @@
 using JotterAPI.DAL.Model;
 using JotterAPI.Helpers;
 using System;
+using System.Linq;
 
-namespace XUnitJotterAPITests.Helpers
+namespace XUnitJotterAPIIntegrationTests.Helpers
 {
 	public static class DbContextSeeding
 	{

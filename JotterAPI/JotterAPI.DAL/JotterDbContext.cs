@@ -9,7 +9,8 @@ namespace JotterAPI.DAL
 	{
 		public JotterDbContext(DbContextOptions options) : base(options) 
 		{
-			if (Database.GetPendingMigrations().Count() > 0) {
+			if (Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory" && Database.GetPendingMigrations().Count() > 0)
+			{
 				Database.Migrate();
 			}
 		}
