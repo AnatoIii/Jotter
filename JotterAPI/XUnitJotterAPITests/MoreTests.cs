@@ -15,7 +15,7 @@ namespace XUnitJotterAPITests
 		[Fact(Timeout = 1)]
 		public void PasswordHasher_TenTimesTimeout_LessThan1Second()
 		{
-			TimeoutHelper.CompletesIn(1000, () =>
+			TimeoutHelper.CompletesIn(10000, () =>
 			{
 				var password = "This is very strong password";
 				var passwordHasher = new PasswordHasher();
