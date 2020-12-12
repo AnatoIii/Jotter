@@ -15,7 +15,14 @@ namespace XUnitJotterAPITests
 		public void UserServiceLogin_When_CorrectUser_Then_GetUser()
 		{
 			var passwordHasher = new PasswordHasher();
-			var userService = new UserService(_dbContext, passwordHasher);
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
+			var userService = new UserService(_dbContext, passwordHasher, tokenConfig);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "test.user@gmail.com",
@@ -26,15 +33,21 @@ namespace XUnitJotterAPITests
 
 			Assert.True(userLoginResponse.IsSuccessful);
 			Assert.Null(userLoginResponse.Error);
-			Assert.Equal(userLoginResponse.ResponseResult.Id, Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"));
-			Assert.NotNull(userLoginResponse.ResponseResult.Name);
+			Assert.NotNull(userLoginResponse.ResponseResult.AccessToken);
 		}
 
 		[Fact]
 		public void UserServiceLogin_When_IncorrectEmail_Then_Error()
 		{
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "incorrect@gmail.com",
@@ -52,7 +65,14 @@ namespace XUnitJotterAPITests
 		public void UserServiceLogin_When_WrongPassword_Then_Error()
 		{
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userLoginCredentials = new UserLoginCredentials {
 				Email = "test.user@gmail.com",
@@ -70,7 +90,14 @@ namespace XUnitJotterAPITests
 		public void UserServiceRegister_When_EmailExists_Then_Error()
 		{
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userRegisterCredentials = new UserRegisterCredentials {
 				Email = "test.user@gmail.com",
@@ -89,7 +116,14 @@ namespace XUnitJotterAPITests
 		public void UserServiceRegister_When_NewUser_Then_GetUser()
 		{
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userRegisterCredentials = new UserRegisterCredentials {
 				Email = Guid.NewGuid() + "test.user@gmail.com",
@@ -103,14 +137,21 @@ namespace XUnitJotterAPITests
 
 			Assert.True(userRegisterResponse.IsSuccessful);
 			Assert.Null(userRegisterResponse.Error);
-			Assert.Equal(userRegisterResponse.ResponseResult.Id, dbUser.Id);
+			Assert.NotNull(userRegisterResponse.ResponseResult.AccessToken);
 		}
 
 		[Fact]
 		public void UserServiceGetById_When_UserNotExist_Then_Error()
 		{
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userResponse = userService.GetById(Guid.NewGuid());
 
@@ -122,8 +163,15 @@ namespace XUnitJotterAPITests
 		[Fact]
 		public void UserServiceGetById_When_UserExists_Then_GetUser()
 		{
+			var tokenConfig = Microsoft.Extensions.Options.Options.Create(new TokenConfig()
+			{
+				Issuer = "Issuer",
+				JWTLifetime = 60,
+				Secret = "Secret auyuiosdyurytasvbdjkast7fvajksdhgyotuasidctd"
+			});
+
 			var passwordHasherMock = new Mock<IPasswordHasher>();
-			var userService = new UserService(_dbContext, passwordHasherMock.Object);
+			var userService = new UserService(_dbContext, passwordHasherMock.Object, tokenConfig);
 
 			var userResponse = userService.GetById(Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C"));
 

@@ -43,12 +43,12 @@ namespace XUnitJotterAPIIntegrationTests
             var httpResponse = await _client.PostAsync("login", new StringContent(json, Encoding.UTF8, "application/json"));
 
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
-            var userResponse = JsonConvert.DeserializeObject<Response<UserDataResult>>(stringResponse);
+            var userResponse = JsonConvert.DeserializeObject<Response<TokenResponse>>(stringResponse);
 
             Assert.Equal(HttpStatusCode.OK, httpResponse.StatusCode);
             Assert.True(userResponse.IsSuccessful);
             Assert.Null(userResponse.Error);
-            Assert.Equal(_dbUser.Id, userResponse.ResponseResult.Id);
+            Assert.NotNull(userResponse.ResponseResult.AccessToken);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace XUnitJotterAPIIntegrationTests
             var httpResponse = await _client.PostAsync("login", new StringContent(json, Encoding.UTF8, "application/json"));
 
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
-            var userResponse = JsonConvert.DeserializeObject<Response<UserDataResult>>(stringResponse);
+            var userResponse = JsonConvert.DeserializeObject<Response<TokenResponse>>(stringResponse);
 
             Assert.Equal(HttpStatusCode.OK, httpResponse.StatusCode);
             Assert.False(userResponse.IsSuccessful);
