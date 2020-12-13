@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JotterAPI", "JotterAPI\Jott
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JotterAPI.DAL", "JotterAPI.DAL\JotterAPI.DAL.csproj", "{5AE14B00-FF34-489A-B35E-B5B9AB6ABE6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitJotterAPITests", "XUnitJotterAPITests\XUnitJotterAPITests.csproj", "{939A58D4-6810-4A6E-8B2B-6277D42B1E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitJotterAPITests", "XUnitJotterAPITests\XUnitJotterAPITests.csproj", "{939A58D4-6810-4A6E-8B2B-6277D42B1E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitJotterAPIIntegrationTests", "XUnitJotterAPIIntegrationTests\XUnitJotterAPIIntegrationTests.csproj", "{D7BA9563-EA71-43CC-BD5C-04E3FCCE6D95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitJotterAPIIntegrationTests", "XUnitJotterAPIIntegrationTests\XUnitJotterAPIIntegrationTests.csproj", "{D7BA9563-EA71-43CC-BD5C-04E3FCCE6D95}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JotterAPI.Selenium", "JotterAPI.Selenium\JotterAPI.Selenium.csproj", "{F54214D8-36DC-457D-9CE9-475F39025B04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D7BA9563-EA71-43CC-BD5C-04E3FCCE6D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7BA9563-EA71-43CC-BD5C-04E3FCCE6D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7BA9563-EA71-43CC-BD5C-04E3FCCE6D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F54214D8-36DC-457D-9CE9-475F39025B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54214D8-36DC-457D-9CE9-475F39025B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54214D8-36DC-457D-9CE9-475F39025B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54214D8-36DC-457D-9CE9-475F39025B04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
