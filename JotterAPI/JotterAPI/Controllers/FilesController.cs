@@ -25,9 +25,9 @@ namespace JotterAPI.Controllers
 		}
 
 		[HttpGet]
-		public Response<FileDataResult> GetFileById([FromQuery]FileIds fileIds)
+		public async Task<Response<FileDataResult>> GetFileById([FromQuery]FileIds fileIds)
 		{
-			return _fileService.GetFileById(fileIds);
+			return await _fileService.GetFileById(fileIds);
 		}
 
 		[HttpDelete]

@@ -14,10 +14,10 @@ namespace JotterAPI.Services
 {
 	public class FileService : BaseService, IFileService
 	{
-		private readonly IFileWorker _fileWorker;
-		public FileService(JotterDbContext dbContext, IFileWorker fileWorker) : base(dbContext)
+		private readonly FileServerClient _fileServerClient;
+		public FileService(JotterDbContext dbContext, FileServerClient client) : base(dbContext)
 		{
-			_fileWorker = fileWorker;
+			_fileServerClient = client;
 		}
 
 		public async Task<Response<FileResult>> AddFile(FileToSaveData fileToSave)
@@ -37,7 +37,7 @@ namespace JotterAPI.Services
 				Base64File = fileToSave.Base64File,
 				FileName = fileToSave.FileName
 			};
-			var path = _fileWorker.SaveFile(fileSaveData);
+			var path = await _fileServerClient.AddFile(fileSaveData.Base64File, fileSaveData.FileName);
 
 			var file = new File {
 				NoteId = fileToSave.NoteId,
@@ -51,7 +51,7 @@ namespace JotterAPI.Services
 			return new Response<FileResult>(new FileResult(file));
 		}
 		
-		public Response<FileDataResult> GetFileById(FileIds fileIds)
+		public async Task<Response<FileDataResult>> GetFileById(FileIds fileIds)
 		{
 			var user = GetUser(fileIds.UserId);
 			if (user == null) {
@@ -67,7 +67,7 @@ namespace JotterAPI.Services
 				return new Response<FileDataResult>("Such file doesn't exist");
 			}
 
-			var fileData = _fileWorker.LoadFile(file.Path);
+			var fileData = await _fileServerClient.ReadFile(file.Path);
 
 			return new Response<FileDataResult>(new FileDataResult(file, fileData));
 		}
@@ -87,7 +87,7 @@ namespace JotterAPI.Services
 				return new Response<ResponseResult>("Such file doesn't exist");
 			}
 
-			_fileWorker.DeleteFile(file.Path);
+			await _fileServerClient.DeleteFile(file.Path);
 			_dbContext.Files.Remove(file);
 			await _dbContext.SaveChangesAsync();
 
