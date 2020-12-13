@@ -7,7 +7,7 @@ namespace JotterAPI.Services.Abstractions
 	public interface IFileService
 	{
 		Task<Response<FileResult>> AddFile(FileToSaveData fileToSave);
-		Response<FileDataResult> GetFileById(FileIds fileIds);
+		Task<Response<FileDataResult>> GetFileById(FileIds fileIds);
 		Task<Response<ResponseResult>> DeleteFile(FileIds fileIds);
 	}
 }

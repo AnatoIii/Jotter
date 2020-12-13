@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Diagnostics;
 using System.Text;
+using JotterAPI.Model;
 
 namespace JotterAPI
 {
@@ -30,9 +31,11 @@ namespace JotterAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.Configure<Hosts>(Configuration.GetSection("Hosts"));
 			services.Configure<TokenConfig>(Configuration.GetSection("TokenConfig"));
 			services.AddControllers();
 
+			services.AddHttpClient<FileServerClient>();
 			services.AddTransient<IFileService, FileService>();
 			services.AddTransient<ICategoriesService, CategoriesService>();
 			services.AddTransient<IUserService, UserService>();
