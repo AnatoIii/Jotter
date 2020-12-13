@@ -3,16 +3,19 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using JotterAPI.Model;
 using JotterAPI.Model.DTOs.Files;
+using JotterAPI.Services.Abstractions;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace JotterAPI.Services
 {
-    public class FileServerClient
+    public class FileServerClient : IFileServerClient
     {
         private HttpClient _httpClient;
         private string _fileServerURL;
+
+        public FileServerClient() { }
 
         public FileServerClient(HttpClient httpClient, IOptions<Hosts> hosts)
         {

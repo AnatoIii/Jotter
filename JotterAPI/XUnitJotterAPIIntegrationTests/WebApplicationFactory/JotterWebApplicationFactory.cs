@@ -5,6 +5,9 @@ using JotterAPI.DAL;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using XUnitJotterAPIIntegrationTests.Helpers;
+using JotterAPI.Services;
+using JotterAPI.Services.Abstractions;
+using XUnitJotterAPIIntegrationTests.FakeServices;
 
 namespace XUnitJotterAPIIntegrationTests.WebApplicationFactory
 {
@@ -16,6 +19,8 @@ namespace XUnitJotterAPIIntegrationTests.WebApplicationFactory
         {
             builder.ConfigureServices(services =>
             {
+                services.AddTransient<IFileServerClient, FakeFileServerClient>();
+
                 var descriptor = services.SingleOrDefault(
                     d => d.ServiceType ==
                         typeof(DbContextOptions<JotterDbContext>));

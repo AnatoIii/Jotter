@@ -14,7 +14,7 @@ namespace JotterAPI.FileServer
 
         public string AddFile(string fileToSave, string relativePath)
         {
-            var fullPath = _baseFileServerPath +  relativePath;
+            var fullPath = _baseFileServerPath + relativePath;
 
             using (var streamWriter = new StreamWriter(fullPath)) {
                 streamWriter.Write(fileToSave);

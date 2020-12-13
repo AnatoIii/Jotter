@@ -42,6 +42,7 @@ namespace JotterAPI
 			services.AddTransient<INoteService, NotesService>();
 			services.AddTransient<IFileWorker, FileSaverHelper>();
 			services.AddTransient<IPasswordHasher, PasswordHasher>();
+			services.AddTransient<IFileServerClient, FileServerClient>();
 
 			services.AddDbContext<JotterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JotterDbContext")));
 

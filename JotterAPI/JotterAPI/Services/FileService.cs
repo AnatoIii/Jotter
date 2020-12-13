@@ -14,8 +14,8 @@ namespace JotterAPI.Services
 {
 	public class FileService : BaseService, IFileService
 	{
-		private readonly FileServerClient _fileServerClient;
-		public FileService(JotterDbContext dbContext, FileServerClient client) : base(dbContext)
+		private readonly IFileServerClient _fileServerClient;
+		public FileService(JotterDbContext dbContext, IFileServerClient client) : base(dbContext)
 		{
 			_fileServerClient = client;
 		}
