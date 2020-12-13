@@ -1,0 +1,10 @@
+.policyContainer {
+  padding:30px 0 30px 0;
+}
+
+.policyContainer h2,
+.policyContainer h3,
+.policyContainer h4
+{
+  margin:20px 0 20px 0;
+}

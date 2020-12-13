@@ -1,0 +1,11 @@
+@import 'assets/styles/mixins.scss';
+
+.breadcrumbs {
+  background-color: $white;
+  line-height:1;
+}
+
+.path {
+  font-size: rem(16);
+  color: $black;
+}
