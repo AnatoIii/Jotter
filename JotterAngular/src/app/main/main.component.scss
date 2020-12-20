@@ -6,19 +6,19 @@ p {
     padding: 0;
 }
 
-.categories-list::-webkit-scrollbar-track
+.categories-list::-webkit-scrollbar-track, .notes-category-content::-webkit-scrollbar-track
 {
   border-radius: 10px;
   background-color: #F5F5F5;
 }
 
-.categories-list::-webkit-scrollbar
+.categories-list::-webkit-scrollbar, .notes-category-content::-webkit-scrollbar
 {
   width: 6px;
   background-color: #F5F5F5;
 }
 
-.categories-list::-webkit-scrollbar-thumb
+.categories-list::-webkit-scrollbar-thumb, .notes-category-content::-webkit-scrollbar-thumb
 {
   border-radius: 10px;
   background-color: $dataColor;
@@ -135,23 +135,88 @@ p {
     }
 }
 
-.note-title {
-    font-weight: bold;
-    font-size: 18px;
-}
-
 .notes {
     width: 70%;
-    padding-top: 8px;
+    padding: 10px;
 
-    .listitem {
-        border-bottom: 1px solid gray;
+    .notes-category-title {
+        margin: 10px;
+        font-size: 24px;
+        color: $accentColor;
     }
+
+    .notes-category-content {
+        border-top: 1px solid $accentColor;
+        height: calc(100% - 40px);
+        overflow-y: auto;
+    }
+
+    .add-note-button {
+        width: 100%;
+        height: 80px;
+
+        .add-note-button-content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            cursor: pointer;
+            border: 1px solid $accentColor;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            color: $accentColor;
+            font-size: 18px;
+    
+        }
+        
+        &:hover {
+            .add-note-button-content {
+                background-color: $accentColor;
+                color: white;
+            }
+        }
+    }
+
+    .notesList {
+        margin: 10px 2px 10px 0;
+        height: calc(100% - 120px);
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: repeat(auto-fill, 100px);
+        gap: 10px;
+        
+        .note-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+        } 
+
+        .listitem {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid $dataColor;
+            border-radius: 5px;
+        }
+    }  
 
     .note {
         padding: 10px 0;
     }
+
+    .noNotes {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: calc(100% - 100px);
+    }
 }
+
+
 
 .listitem:hover {
     background-color: $dataColor;

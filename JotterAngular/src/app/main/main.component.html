@@ -23,7 +23,7 @@
                 </mat-list-item>
             </mat-list>
             <div class="add-button">
-                <div class="content" (click)="addCategory()">
+                <div class="content" (click)="addCategory()" type="presentation">
                     <div>
                         <mat-icon [inline]="true">add</mat-icon>
                     </div>
@@ -32,14 +32,24 @@
             </div>
         </div>
     </div>
-    <div class="notes" *ngIf="selectedCategory">
-        <div class="space-between">
-            <p class="category-title">{{ selectedCategory.name }}</p>
-            <button mat-raised-button color="primary" class="add-note" (click)="addNote()">Add note</button>
-        </div>
-        <div class="note listitem" *ngFor="let note of notes" (click)="openDialog(note)">
-            <p class="note-title">{{note.name }}</p>
-            <p>{{ note.description }}</p>
+    <div class="notes" *ngIf="canShowCategoryNotes()">
+        <p class="notes-category-title">{{ selectedCategory.name }}</p>
+        <div class="notes-category-content">
+            <div class="add-note-button">
+                <div class="add-note-button-content" (click)="addNote()" type="presentation">
+                    <div>
+                        <mat-icon [inline]="true">add</mat-icon>
+                    </div>
+                    <p>Add note</p>
+                </div>
+            </div>
+            <div class="noNotes" *ngIf="notes == undefined || notes.length == 0"><p>No notes for now</p></div>
+            <div class="notesList" *ngIf="notes != undefined && notes.length > 0">
+                <div class="note listitem" *ngFor="let note of notes" (click)="openDialog(note)">
+                    <p class="note-title">{{note.name }}</p>
+                    <p>{{ note.description }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

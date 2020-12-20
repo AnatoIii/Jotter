@@ -72,8 +72,7 @@ export class MainComponent implements OnInit {
 
   getCategoryNotes(id: string): void {
     this.selectedCategory = this.categories.find(category => category.id === id);
-    this.notes = notes;
-
+    this.notes = undefined;
     if (this.selectedCategory.isLocked) {
       const dialogRef = this.dialog.open(CategoryPasswordComponent, {
         width: '400px',
@@ -81,7 +80,6 @@ export class MainComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result); 
         if (result == null) {
           this.selectedCategory = null;
           return;
@@ -104,8 +102,7 @@ export class MainComponent implements OnInit {
             this.selectedCategory = null;
             return;
           }
-
-          this.notes = response.responseResult;
+          this.notes = response.responseResult.notes;
         },
         error => {
           this.showLoader = false;
@@ -157,14 +154,22 @@ export class MainComponent implements OnInit {
 
   addNote(): void {
     const dialogRef = this.dialog.open(AddNoteComponent, {
-      width: '500px'
+      width: '400px'
     });
 
-    dialogRef.afterClosed().subscribe(note => {
+    dialogRef.afterClosed().subscribe((note: Note) => {
+      console.log(note);
+
+      note.categoryID = this.selectedCategory.id;
+
       this.noteService.addNote(note)
         .pipe(takeUntil(this.unsubscribe))
         .subscribe(
           response => {
+            if (!response.isSuccessful) {
+              this.showError(response.error);
+              return;
+            }
             this.notes.push(response.responseResult);
           },
           error => {
@@ -185,6 +190,21 @@ export class MainComponent implements OnInit {
     this.toastr.error(error, 'Error');
   }
 
+  canShowCategoryNotes(): boolean {
+    if (!this.selectedCategory) {
+      return false;
+    }
+
+    if (!this.selectedCategory.isLocked) {
+      return true;
+    }
+
+    if (this.selectedCategory.isLocked && this.notes == undefined) {
+      return false;
+    }
+
+    return true;
+  }
 }
 
 const categories = [

@@ -1,14 +1,46 @@
+@import 'src/assets/styles/variables.scss';
+
 :host {
     display: block;
-    width: 80%;
-    margin: 0 auto;
+    margin: 10px;
 }
 
 .title {
     font-size: 16px;
     font-weight: bold;
+    color: $accentColor;
 }
 
 mat-form-field {
     width: 100%;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        width: 80px;
+    }
+}
+
+.cancel-button {
+    color: $dataColor;
+    text-decoration: underline;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    height: 36px;
+    width: 60px;
+
+    &:hover {
+        color: $accentColor;
+        text-decoration: none;
+    }
+    
+    p {
+        margin: 0;
+    }
 }

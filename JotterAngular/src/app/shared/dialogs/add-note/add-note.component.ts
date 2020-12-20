@@ -7,7 +7,6 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-note.component.scss']
 })
 export class AddNoteComponent {
-
   name: string;
   description: string;
 
@@ -16,11 +15,10 @@ export class AddNoteComponent {
   ) { }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(null);
   }
 
   get note(): any {
     return { name: this.name, description: this.description };
   }
-
 }
