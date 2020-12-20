@@ -1,5 +1,5 @@
 <div class="spinner" *ngIf="showLoader">
-    <mat-spinner class="spinner" diameter="50" ></mat-spinner>
+    <mat-spinner class="spinner" diameter="50"></mat-spinner>
 </div>
 <!-- <div class="header">
     <span>{{ user.name }}</span>
@@ -15,7 +15,8 @@
             </div>
             <mat-list role="list" class="categories-list">
                 <mat-list-item class="listitem" role="listitem" *ngFor="let category of categories"
-                    (click)="getCategoryNotes(category.id)" [ngClass]="{ 'active-item': isCategorySelected(category.id) }"> 
+                    (click)="getCategoryNotes(category.id)"
+                    [ngClass]="{ 'active-item': isCategorySelected(category.id) }">
                     <div class="category-item">
                         <p>{{ category.name }}</p>
                         <mat-icon [inline]="true" *ngIf="category.isLocked">lock</mat-icon>
@@ -43,7 +44,9 @@
                     <p>Add note</p>
                 </div>
             </div>
-            <div class="noNotes" *ngIf="notes == undefined || notes.length == 0"><p>No notes for now</p></div>
+            <div class="noNotes" *ngIf="notes == undefined || notes.length == 0">
+                <p>No notes for now</p>
+            </div>
             <div class="notesList" *ngIf="notes != undefined && notes.length > 0">
                 <div class="note listitem" *ngFor="let note of notes" (click)="openDialog(note)">
                     <p class="note-title">{{note.name }}</p>

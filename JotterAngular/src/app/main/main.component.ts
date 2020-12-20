@@ -42,7 +42,12 @@ export class MainComponent implements OnInit {
         this.user = user;
       });
 
-      this.getAllCategories();
+    this.getAllCategories();
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   isAuthentificated() {
@@ -78,7 +83,7 @@ export class MainComponent implements OnInit {
         width: '400px',
         data: { categoryName: this.selectedCategory.name }
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         if (result == null) {
           this.selectedCategory = null;
@@ -143,7 +148,7 @@ export class MainComponent implements OnInit {
             error => {
               this.showError(error.message.error || error.message);
             }
-          )
+          );
       };
     });
   }
@@ -159,7 +164,8 @@ export class MainComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((note: Note) => {
       console.log(note);
-
+      if (!note)
+        return;
       note.categoryID = this.selectedCategory.id;
 
       this.noteService.addNote(note)

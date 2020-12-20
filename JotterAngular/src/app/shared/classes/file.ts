@@ -1,6 +1,5 @@
 export class File {
     id: string;
-    fileName: string;
-    noteId?: string;
+    name: string;
     base64File?: string;
 }

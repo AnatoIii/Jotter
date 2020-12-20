@@ -51,12 +51,12 @@ export class NoteService {
       `${this.apiUrl}/notes/${id}`);
   }
 
-  getFiles(id: string): Observable<Response> {
+  getFile(id: string): Observable<Response> {
     return this.http.get<Response>(
       `${this.apiUrl}/files/${id}`);
   }
 
-  addFiles(note: Note): Observable<Response> {
+  addFiles(note: any): Observable<Response> {
     return this.http.post<Response>(
       `${this.apiUrl}/files`,
       { ...note });

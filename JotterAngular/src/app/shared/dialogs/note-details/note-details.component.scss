@@ -13,10 +13,25 @@
 
 .description {
     margin-bottom: 20px;
+    word-break: break-word;
+}
+
+.attach-title {
+    font-weight: bold;
 }
 
 .attachment {
     display: inline-flex;
     text-decoration: none;
     color: $main;
+
+    &:hover span{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    mat-icon {
+        font-size: 19px;
+        width: 19px;
+    }
 }

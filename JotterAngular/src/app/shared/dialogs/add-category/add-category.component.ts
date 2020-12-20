@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-category',
@@ -7,18 +8,30 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent {
-  name: string;
-  password: string;
+
+  addForm: FormGroup;
+
+  get name(): AbstractControl {
+    return this.addForm.get('name');
+  }
 
   constructor(
-    public dialogRef: MatDialogRef<AddCategoryComponent>
+    public dialogRef: MatDialogRef<AddCategoryComponent>,
+    private formBuilder: FormBuilder
   ) { }
+
+  ngOnInit(): void {
+    this.addForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      password: [''],
+    });
+  }
 
   onNoClick(): void {
     this.dialogRef.close(null);
   }
 
   get category(): any {
-    return { name: this.name, password: this.password };
+    return this.addForm.value;
   }
 }
