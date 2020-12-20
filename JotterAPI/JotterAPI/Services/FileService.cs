@@ -7,6 +7,7 @@ using JotterAPI.Model.DTOs.Notes;
 using JotterAPI.Model.Reponses;
 using JotterAPI.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,15 +21,15 @@ namespace JotterAPI.Services
 			_fileServerClient = client;
 		}
 
-		public async Task<Response<FileResult>> AddFile(FileToSaveData fileToSave)
+		public async Task<Response<FileResult>> AddFile(FileToSaveData fileToSave, Guid userId)
 		{
-			var user = GetUser(fileToSave.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<FileResult>("Such user doesn't exist");
 			}
 			var note = _dbContext.Notes
 				.Include(note => note.Category)
-				.FirstOrDefault(note => note.Id == fileToSave.NoteId && note.Category.UserId == fileToSave.UserId);
+				.FirstOrDefault(note => note.Id == fileToSave.NoteId && note.Category.UserId == userId);
 			if (note == null) {
 				return new Response<FileResult>("Such note doesn't exist");
 			}
@@ -51,9 +52,9 @@ namespace JotterAPI.Services
 			return new Response<FileResult>(new FileResult(file));
 		}
 		
-		public async Task<Response<FileDataResult>> GetFileById(FileIds fileIds)
+		public async Task<Response<FileDataResult>> GetFileById(Guid fileId, Guid userId)
 		{
-			var user = GetUser(fileIds.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<FileDataResult>("Such user doesn't exist");
 			}
@@ -61,7 +62,7 @@ namespace JotterAPI.Services
 			var file = _dbContext.Files
 				.Include(file => file.Note)
 					.ThenInclude(note => note.Category)
-				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.Category.UserId == fileIds.UserId);
+				.FirstOrDefault(file => file.Id == fileId && file.Note.Category.UserId == userId);
 
 			if (file == null) {
 				return new Response<FileDataResult>("Such file doesn't exist");
@@ -72,16 +73,16 @@ namespace JotterAPI.Services
 			return new Response<FileDataResult>(new FileDataResult(file, fileData));
 		}
 
-		public async Task<Response<ResponseResult>> DeleteFile(FileIds fileIds)
+		public async Task<Response<ResponseResult>> DeleteFile(Guid fileId, Guid userId)
 		{
-			var user = GetUser(fileIds.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<ResponseResult>("Such user doesn't exist");
 			}
 
 			var file = _dbContext.Files
 				.Include(file => file.Note)
-				.FirstOrDefault(file => file.Id == fileIds.FileId && file.Note.Category.UserId == fileIds.UserId);
+				.FirstOrDefault(file => file.Id == fileId && file.Note.Category.UserId == userId);
 
 			if (file == null) {
 				return new Response<ResponseResult>("Such file doesn't exist");

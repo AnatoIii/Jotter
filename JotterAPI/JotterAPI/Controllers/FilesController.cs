@@ -2,6 +2,7 @@
 using JotterAPI.Model.Reponses;
 using JotterAPI.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 using FileResult = JotterAPI.Model.Reponses.FileResult;
 
@@ -19,21 +20,26 @@ namespace JotterAPI.Controllers
 		}
 
 		[HttpPost]
-		public Task<Response<FileResult>> AddFile([FromBody]FileToSaveData fileToSave)
+		public Task<Response<FileResult>> AddFile([FromBody] FileToSaveData fileToSave)
 		{
-			return _fileService.AddFile(fileToSave);
+			return _fileService.AddFile(fileToSave, GetUserId());
 		}
 
-		[HttpGet]
-		public async Task<Response<FileDataResult>> GetFileById([FromQuery]FileIds fileIds)
+		[HttpGet("{fileId}")]
+		public async Task<Response<FileDataResult>> GetFileById(Guid fileId)
 		{
-			return await _fileService.GetFileById(fileIds);
+			return await _fileService.GetFileById(fileId, GetUserId());
 		}
 
-		[HttpDelete]
-		public Task<Response<ResponseResult>> DeleteFile([FromQuery]FileIds fileIds)
+		[HttpDelete("{fileId}")]
+		public Task<Response<ResponseResult>> DeleteFile(Guid fileId)
 		{
-			return _fileService.DeleteFile(fileIds);
+			return _fileService.DeleteFile(fileId, GetUserId());
+		}
+
+		private Guid GetUserId()
+		{
+			return Guid.Parse(User.Identity.Name);
 		}
 	}
 }

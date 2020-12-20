@@ -1,0 +1,123 @@
+@import './flex';
+@import './paddings_margins.scss';
+
+$main: #463940;
+$bg-color: #f6f5f7;
+$dark: #0B172A;
+
+.flex {
+    @include flex;
+}
+
+.nowrap {
+    @include nowrap;
+}
+
+.flex-center {
+    @include flex-center;
+}
+
+.flex-column {
+    @include flex-column;
+}
+
+.flex-start {
+    @include flex-start;
+}
+
+.flex-end {
+    @include flex-end;
+}
+
+.space-between {
+    @include space-between;
+}
+
+.space-evenly {
+    @include space-evenly;
+}
+
+.align-center {
+    @include align-center;
+}
+
+.to-center {
+    margin: 0 auto;
+}
+
+.icon {
+    color: white;
+}
+
+.logo,
+.header {
+    font-size: 19px;
+    font-weight: 700;
+    color: white;
+    @include flex;
+    @include align-center;
+}
+
+#toast-container > div {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    opacity: .9;
+    font-size: 13px;
+}
+
+.mat-button,
+.mat-raised-button {
+    color: white;
+    background-color: $main !important;
+}
+
+//Font
+.mat-table,
+.mat-menu-item,
+.mat-button,
+.mat-form-field {
+    font-family: 'Ubuntu', "Helvetica Neue", sans-serif;
+}
+
+.mat-menu-content {
+    padding: 0 !important;
+}
+
+//Mat form
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline,
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: $main;
+}
+
+input.mat-input-element {
+    color: black;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: black;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: black !important;
+}
+
+.mat-input-element {
+    caret-color: black !important;
+}
+
+.mat-form-field-ripple {
+    background-color: $main !important;
+}
+
+.mat-datepicker-toggle-active {
+    path {
+        fill: $main;
+    }
+}
+
+.mat-calendar-body-selected {
+    background-color: $main;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: $main;
+}

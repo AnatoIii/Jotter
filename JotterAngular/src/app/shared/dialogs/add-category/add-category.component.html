@@ -1,0 +1,19 @@
+<p class="title">Create new category</p>
+
+<p>
+    <mat-form-field appearance="legacy" class="mat-form-field">
+        <mat-label for="name">Name</mat-label>
+        <input matInput id="name" type="text" [(ngModel)]="name">
+    </mat-form-field>
+</p>
+<p>
+    <mat-form-field appearance="legacy" class="mat-form-field">
+        <mat-label for="password">Password</mat-label>
+        <input matInput id="category-password" type="password" [(ngModel)]="password">
+    </mat-form-field>
+</p>
+
+<div mat-dialog-actions class="actions">
+    <div (click)="onNoClick()" class="cancel-button"><p>Cancel</p></div>
+    <button mat-button [mat-dialog-close]="category" cdkFocusInitial>Add</button>
+</div>

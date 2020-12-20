@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace JotterAPI.Controllers
 {
+	[Authorize]
 	[ApiController]
 	[Route("")]
 	public class UsersController : ControllerBase
@@ -33,10 +34,15 @@ namespace JotterAPI.Controllers
 			return _userService.Register(userRegisterCredential);
 		}
 
-		[HttpGet("user/{id}")]
-		public Response<UserDataResult> GetById([FromRoute] Guid id)
+		[HttpGet("user")]
+		public Response<UserDataResult> GetById()
 		{
-			return _userService.GetById(id);
+			return _userService.GetById(GetUserId());
+		}
+
+		private Guid GetUserId()
+		{
+			return Guid.Parse(User.Identity.Name);
 		}
 	}
 }

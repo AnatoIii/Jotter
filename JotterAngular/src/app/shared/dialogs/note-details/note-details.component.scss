@@ -1,0 +1,22 @@
+@import '../../../../assets//styles//global.scss';
+
+:host {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+.attachment {
+    display: inline-flex;
+    text-decoration: none;
+    color: $main;
+}

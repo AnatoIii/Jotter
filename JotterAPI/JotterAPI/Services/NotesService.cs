@@ -4,6 +4,7 @@ using JotterAPI.Model.DTOs.Notes;
 using JotterAPI.Model.Reponses;
 using JotterAPI.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,15 +16,15 @@ namespace JotterAPI.Services
 		{
 		}
 
-		public async Task<Response<NoteResult>> CreateNote(NoteToCreate noteToCreate)
+		public async Task<Response<NoteResult>> CreateNote(NoteToCreate noteToCreate, Guid userId)
 		{
-			var user = GetUser(noteToCreate.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<NoteResult>("User with such Id doesn't exist");
 			}
 
 			var category = _dbContext.Categories
-				.FirstOrDefault(category => category.UserId == noteToCreate.UserId && category.Id == noteToCreate.CategoryId);
+				.FirstOrDefault(category => category.UserId == userId && category.Id == noteToCreate.CategoryId);
 			if (category == null) {
 				return new Response<NoteResult>("User don't have such category");
 			}
@@ -40,9 +41,9 @@ namespace JotterAPI.Services
 			return new Response<NoteResult>(new NoteResult(note));
 		}
 
-		public async Task<Response<NoteResult>> EditNote(NoteToEdit noteToEdit)
+		public async Task<Response<NoteResult>> EditNote(NoteToEdit noteToEdit, Guid userId)
 		{
-			var user = GetUser(noteToEdit.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<NoteResult>("User with such Id doesn't exist");
 			}
@@ -50,7 +51,7 @@ namespace JotterAPI.Services
 			var note = _dbContext.Notes
 				.Include(note => note.Files)
 				.Include(note => note.Category)
-				.FirstOrDefault(note => note.Id == noteToEdit.Id && note.Category.UserId == noteToEdit.UserId);
+				.FirstOrDefault(note => note.Id == noteToEdit.Id && note.Category.UserId == userId);
 			if (note == null) {
 				return new Response<NoteResult>("Such note doesn't exist");
 			}
@@ -63,16 +64,16 @@ namespace JotterAPI.Services
 			return new Response<NoteResult>(new NoteResult(note));
 		}
 
-		public async Task<Response<ResponseResult>> DeleteNote(NoteId noteId)
+		public async Task<Response<ResponseResult>> DeleteNote(Guid noteId, Guid userId)
 		{
-			var user = GetUser(noteId.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<ResponseResult>("User with such Id doesn't exist");
 			}
 
 			var note = _dbContext.Notes
 				.Include(note => note.Category)
-				.FirstOrDefault(note => note.Id == noteId.Id && note.Category.UserId == noteId.UserId);
+				.FirstOrDefault(note => note.Id == noteId && note.Category.UserId == userId);
 			if (note == null) {
 				return new Response<ResponseResult>("Such note doesn't exist");
 			}
@@ -83,15 +84,15 @@ namespace JotterAPI.Services
 			return new Response<ResponseResult>(new ResponseResult());
 		}
 
-		public Response<NotesResult> GetByCategory(CategoryData categoryData)
+		public Response<NotesResult> GetByCategory(CategoryData categoryData, Guid userId)
 		{
-			var user = GetUser(categoryData.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<NotesResult>("User with such Id doesn't exist");
 			}
 
 			var category = _dbContext.Categories
-				.FirstOrDefault(category => category.UserId == categoryData.UserId && category.Id == categoryData.CategoryId);
+				.FirstOrDefault(category => category.UserId == userId && category.Id == categoryData.CategoryId);
 			if (category == null) {
 				return new Response<NotesResult>("Such category doesn't exist");
 			}
@@ -101,13 +102,13 @@ namespace JotterAPI.Services
 
 			var notes = _dbContext.Notes
 				.Include(note => note.Category)
-				.Where(note => note.CategoryId == categoryData.CategoryId && note.Category.UserId == categoryData.UserId);
+				.Where(note => note.CategoryId == categoryData.CategoryId && note.Category.UserId == userId);
 			return new Response<NotesResult>(new NotesResult(notes));
 		}
 
-		public Response<NoteResult> GetById(NoteId noteId)
+		public Response<NoteResult> GetById(Guid noteId, Guid userId)
 		{
-			var user = GetUser(noteId.UserId);
+			var user = GetUser(userId);
 			if (user == null) {
 				return new Response<NoteResult>("User with such Id doesn't exist");
 			}
@@ -115,7 +116,7 @@ namespace JotterAPI.Services
 			var note = _dbContext.Notes
 				.Include(note => note.Files)
 				.Include(note => note.Category)
-				.FirstOrDefault(note => note.Id == noteId.Id && note.Category.UserId == noteId.UserId);
+				.FirstOrDefault(note => note.Id == noteId && note.Category.UserId == userId);
 
 			if (note == null) {
 				return new Response<NoteResult>("Such note doesn't exist");

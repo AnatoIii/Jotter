@@ -62,7 +62,7 @@ namespace JotterAPI
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
+                    ValidateIssuerSigningKey = false,
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });
@@ -84,10 +84,11 @@ namespace JotterAPI
 
 			//app.UseHttpsRedirection();
 
+			app.UseAuthentication();
+
 			app.UseRouting();
 
 			app.UseAuthorization();
-			app.UseAuthentication();
 
 			app.UseEndpoints(endpoints => {
 				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");

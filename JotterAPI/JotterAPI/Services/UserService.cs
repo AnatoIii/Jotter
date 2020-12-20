@@ -86,13 +86,13 @@ namespace JotterAPI.Services
         {
 			var claims = new[]
 			{
-				new Claim(ClaimTypes.Name, user.Name),
-				new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+				new Claim(ClaimTypes.NameIdentifier, user.Name),
+				new Claim(ClaimTypes.Name, user.Id.ToString())
 			};
 
 			var token = new JwtSecurityToken(
 				issuer: _tokenConfig.Issuer,
-				audience: "Some audience",
+				audience: _tokenConfig.Audience,
 				claims: claims,
 				expires: DateTime.Now.AddMinutes(_tokenConfig.JWTLifetime),
 				signingCredentials: _signingCredentials

@@ -5,8 +5,6 @@ namespace JotterAPI.Model.DTOs.Categories
 {
 	public class NewCategory
 	{
-		[Required]
-		public Guid UserId { get; set; }
 
 		[Required]
 		public string Name { get; set; }

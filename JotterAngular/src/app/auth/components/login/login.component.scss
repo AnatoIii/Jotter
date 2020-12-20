@@ -1,0 +1,142 @@
+@import 'src/assets/styles/global.scss';
+@import 'src/assets/styles/variables.scss';
+
+:host {
+    display: block;
+    height: 100vh;
+    background: url('/assets/images/background.jpg') center;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.name {
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    h3 {
+        font-size: 48px;
+    }
+}
+
+.open_form {
+    width: 100%;
+    position: fixed;
+    bottom: -260px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    .icon {
+        cursor: pointer;
+        margin-bottom: 20px;
+        z-index: 10;
+        font-size: 60px;
+    }
+    .loginText {
+        opacity: 0;
+        margin-top: -40px;
+        h3 {
+            font-size: 36px;
+            color: $accentColor;
+            cursor: default;
+        }
+    }
+}
+
+.login {
+    background: rgba($color: (#ffffff), $alpha: 0.5);
+
+    mat-card {
+        background: none;
+        padding: 20px 0 20px 0px;
+        
+        mat-form-field {
+            width: 80%;
+            mat-label {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.toRegister {
+    margin-top: 10px;
+    a {
+        color: rgba($color: #ffffff, $alpha: 0.8);
+        &:hover {
+            text-decoration: none
+        }
+    }
+}
+
+.opened { 
+    animation-name: example;
+    animation-duration: 2s;
+    bottom: calc(50vh - 110px);
+
+    .login {
+        border: 3px solid $accentColor;
+        border-radius: 3px;
+    }
+    
+    .icon {       
+        animation-name: hide;
+        animation-duration: 3s;
+        opacity: 0;
+        cursor: default;
+    }
+    .loginText {
+        animation-name: show;
+        animation-duration: 4s;
+        opacity: 1;
+    }
+}
+
+@keyframes example {
+    0% {
+        bottom: -260px;
+    }
+    100% {
+        bottom: calc(50vh - 110px);
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.login-card {
+    width: 350px;
+    margin: 0 auto;
+
+    .header {
+        margin: 20px 0 15px 0;
+    }
+
+    button {
+        margin: 10px;
+        width: 150px;
+    }
+}

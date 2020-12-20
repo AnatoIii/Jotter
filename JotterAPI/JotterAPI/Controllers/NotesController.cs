@@ -2,6 +2,7 @@
 using JotterAPI.Model.Reponses;
 using JotterAPI.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace JotterAPI.Controllers
@@ -20,31 +21,36 @@ namespace JotterAPI.Controllers
 		[HttpPost]
 		public Task<Response<NoteResult>> CreateNote([FromBody]NoteToCreate noteToCreate)
 		{
-			return _noteService.CreateNote(noteToCreate);
+			return _noteService.CreateNote(noteToCreate, GetUserId());
 		}
 
 		[HttpPut]
 		public Task<Response<NoteResult>> EditNote([FromBody]NoteToEdit noteToEdit)
 		{
-			return _noteService.EditNote(noteToEdit);
+			return _noteService.EditNote(noteToEdit, GetUserId());
 		}
 		
-		[HttpDelete]
-		public Task<Response<ResponseResult>> DeleteNote([FromQuery]NoteId noteId)
+		[HttpDelete("{noteId}")]
+		public Task<Response<ResponseResult>> DeleteNote(Guid noteId)
 		{
-			return _noteService.DeleteNote(noteId);
+			return _noteService.DeleteNote(noteId, GetUserId());
 		}
 		
 		[HttpGet("category")]
 		public Response<NotesResult> GetByCategory([FromQuery]CategoryData categoryData)
 		{
-			return _noteService.GetByCategory(categoryData);
+			return _noteService.GetByCategory(categoryData, GetUserId());
 		}
 		
-		[HttpGet]
-		public Response<NoteResult> GetById([FromQuery]NoteId noteId)
+		[HttpGet("{noteId}")]
+		public Response<NoteResult> GetById(Guid noteId)
 		{
-			return _noteService.GetById(noteId);
+			return _noteService.GetById(noteId, GetUserId());
+		}
+		
+		private Guid GetUserId()
+		{
+			return Guid.Parse(User.Identity.Name);
 		}
 	}
 }

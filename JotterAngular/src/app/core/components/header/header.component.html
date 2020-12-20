@@ -1,0 +1,17 @@
+<div class="space-between align-center">
+    <div class="menu">
+        <div class="logo" routerLink="/main">
+            Jotter
+        </div>
+    </div>
+
+    <div *ngIf="!isAuthenticated" class="login flex align-center" routerLink="/login">
+        <mat-icon>login</mat-icon>
+        Login
+    </div>
+
+    <div *ngIf="isAuthenticated" class="login flex align-center" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+    </div>
+</div>

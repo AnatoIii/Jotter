@@ -21,13 +21,24 @@ namespace JotterAPI.Controllers
 		[HttpPost]
 		public Task<Response<CategoryResult>> AddCategory([FromBody]NewCategory newCategory)
 		{
-			return _categoriesService.AddCategory(newCategory);
+			return _categoriesService.AddCategory(newCategory, GetUserId());
 		}
 
-		[HttpGet("{userId}")]
-		public Response<CategoriesResult> GetByUser([FromRoute]Guid userId)
+		[HttpGet]
+		public Response<CategoriesResult> GetByUser()
 		{
-			return _categoriesService.GetByUser(userId);
+			return _categoriesService.GetByUser(GetUserId());
+		}
+
+		[HttpDelete("{categoryId}")]
+		public Task<Response<ResponseResult>> DeleteCategory(Guid categoryId)
+        {
+			return _categoriesService.DeleteCategory(categoryId, GetUserId());
+        }
+
+		private Guid GetUserId()
+		{
+			return Guid.Parse(User.Identity.Name);
 		}
 	}
 }

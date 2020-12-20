@@ -1,0 +1,1 @@
+# Web - client created for Jotter frontend part with angular
