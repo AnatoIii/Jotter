@@ -1,20 +1,20 @@
 <p class="title">{{ getTitle() }}</p>
 
-<p>
+<form class="flex-center flex-column" [formGroup]="addForm">
     <mat-form-field appearance="legacy" class="mat-form-field">
         <mat-label for="name">Name</mat-label>
-        <input matInput id="name" type="text" [(ngModel)]="name">
+        <input matInput id="name" type="text" formControlName="name">
+        <mat-error *ngIf="!name.value">Name is required</mat-error>
+        <mat-error *ngIf="name.value && name.errors?.minlength">Length should be more than 2 characters</mat-error>
     </mat-form-field>
-</p>
 
-<p>
     <mat-form-field appearance="legacy" class="mat-form-field">
         <mat-label for="description">Description</mat-label>
-        <textarea matInput id="description" [(ngModel)]="description"></textarea>
+        <textarea matInput id="description" formControlName="description"></textarea>
     </mat-form-field>
-</p>
+</form>
 
 <div mat-dialog-actions class="actions">
     <div (click)="onNoClick()" class="cancel-button"><p>Cancel</p></div>
-    <button mat-button [mat-dialog-close]="note" cdkFocusInitial>{{ edit ? "Save" : "Add" }}</button>
+    <button mat-button [mat-dialog-close]="note" [disabled]="addForm.invalid" cdkFocusInitial>{{ edit ? "Save" : "Add" }}</button>
 </div>

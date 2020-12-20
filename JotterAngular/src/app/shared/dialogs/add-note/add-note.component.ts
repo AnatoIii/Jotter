@@ -1,26 +1,27 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Note } from '../../classes/note';
-
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
   styleUrls: ['./add-note.component.scss']
 })
 export class AddNoteComponent {
-  name: string;
+  _name: string;
   description: string;
   edit: boolean;
   oldName: string;
 
   constructor(
     public dialogRef: MatDialogRef<AddNoteComponent>,
-    @Inject(MAT_DIALOG_DATA) data: Note
+    @Inject(MAT_DIALOG_DATA) data: Note,
+    private formBuilder: FormBuilder
   ) { 
     if (data != null) {
       this.edit = true;
       this.oldName = data.name;
-      this.name = data.name;
+      this._name = data.name;
       this.description = data.description;  
     }    
   }
@@ -29,11 +30,24 @@ export class AddNoteComponent {
     return this.edit ? `Edit ${this.oldName}` : "Create new note";
   }
 
+  addForm: FormGroup;
+
+  get name(): AbstractControl {
+    return this.addForm.get('name');
+  }
+
+  ngOnInit(): void {
+    this.addForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      description: [''],
+    });
+  }
+
   onNoClick(): void {
     this.dialogRef.close(null);
   }
 
   get note(): any {
-    return { name: this.name, description: this.description };
+    return this.addForm.value;
   }
 }

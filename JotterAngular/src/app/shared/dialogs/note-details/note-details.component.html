@@ -9,17 +9,18 @@
 <div class="attachments">
     <div class="attachment-title">
         <p>Attachments</p>
-        <div class="attach-file">
+        <div class="attach-file" (click)="fileUpload.click()">
             <div>
                 <mat-icon [inline]="true">add</mat-icon>
             </div>
             <p>Attach file</p>
         </div>
+        <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="attachFile($event)" style="display:none">
     </div>
-    <a href="#" class="attachment" *ngFor="let file of note.files">
+    <a (click)="loadFile(file.id)" class="attachment" *ngFor="let file of note.files">
         <mat-icon> attach_file</mat-icon>
-        {{file.fileName}}
-    </a>
+        <span>{{file.name}}</span>
+    </a>    
 </div>
 
 <div mat-dialog-actions class="actions">
