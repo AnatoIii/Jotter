@@ -14,6 +14,7 @@ import { AddNoteComponent } from '../shared/dialogs/add-note/add-note.component'
 import { AuthService } from '../core/services/auth.service';
 import { User } from '../shared/classes/user';
 import { CategoryPasswordComponent } from '../shared/dialogs/category-password/category-password.component';
+import { ConfirmationModalComponent } from '../shared/dialogs/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-main',
@@ -156,7 +157,7 @@ export class MainComponent implements OnInit {
     const dialogRef = this.dialog.open(AddNoteComponent, {
       width: '400px'
     });
-
+    
     dialogRef.afterClosed().subscribe((note: Note) => {
       console.log(note);
 
@@ -180,9 +181,15 @@ export class MainComponent implements OnInit {
   }
 
   openDialog(note: Note): void {
-    this.dialog.open(NoteDetailsComponent, {
+    const dialogRef = this.dialog.open(NoteDetailsComponent, {
       width: '600px',
       data: note
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.notes = this.notes.filter(n => n.id != note.id);
+      }
     });
   }
 
