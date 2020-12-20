@@ -159,7 +159,9 @@ export class MainComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe((note: Note) => {
-      console.log(note);
+      if (!note) {
+        return;
+      }
 
       note.categoryID = this.selectedCategory.id;
 
@@ -187,8 +189,11 @@ export class MainComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      if (res) {
+      if (res.deleted) {
         this.notes = this.notes.filter(n => n.id != note.id);
+      }
+      else if (res.note) {
+        this.notes = this.notes.map(n => n.id == res.note.id ? res.note : n);
       }
     });
   }

@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { NoteService } from 'src/app/core/services/note.service';
 
 import { Note } from '../../classes/note';
+import { AddNoteComponent } from '../add-note/add-note.component';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @Component({
@@ -32,6 +33,28 @@ export class NoteDetailsComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  onEdit() {
+    const dialogRef = this.dialog.open(AddNoteComponent, {
+      width: '400px',
+      data: this.note
+    });  
+
+    dialogRef.afterClosed().subscribe((result: Note) => {
+      if (result) {
+        result.id = this.note.id;
+        this.noteService.editNote(result)
+          .pipe(takeUntil(this.unsubscribe))
+          .subscribe(response => {
+            if (!response.isSuccessful) {
+              return;
+            }
+            
+            this.dialogRef.close({ deleted: false, note: response.responseResult });
+          });
+      }
+    });
+  }
+
   onDelete() {
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
       width: '400px',
@@ -43,7 +66,7 @@ export class NoteDetailsComponent implements OnInit {
         this.noteService.deleteNote(this.note.id)
           .pipe(takeUntil(this.unsubscribe))
           .subscribe(response => {});
-        this.dialogRef.close(true);
+        this.dialogRef.close({ deleted: true });
       }
     });
   }

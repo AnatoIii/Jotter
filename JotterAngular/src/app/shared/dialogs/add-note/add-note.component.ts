@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Note } from '../../classes/note';
 
 @Component({
   selector: 'app-add-note',
@@ -9,10 +10,24 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class AddNoteComponent {
   name: string;
   description: string;
+  edit: boolean;
+  oldName: string;
 
   constructor(
-    public dialogRef: MatDialogRef<AddNoteComponent>
-  ) { }
+    public dialogRef: MatDialogRef<AddNoteComponent>,
+    @Inject(MAT_DIALOG_DATA) data: Note
+  ) { 
+    if (data != null) {
+      this.edit = true;
+      this.oldName = data.name;
+      this.name = data.name;
+      this.description = data.description;  
+    }    
+  }
+
+  getTitle(): string {
+    return this.edit ? `Edit ${this.oldName}` : "Create new note";
+  }
 
   onNoClick(): void {
     this.dialogRef.close(null);
