@@ -10,6 +10,11 @@ namespace JotterAPI.FileServer
         public FileService(string baseFileServerPath)
         {
             _baseFileServerPath = baseFileServerPath;
+        
+            if (!Directory.Exists(baseFileServerPath))
+            {
+                Directory.CreateDirectory(baseFileServerPath);
+            }
         }
 
         public string AddFile(string fileToSave, string relativePath)

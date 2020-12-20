@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using JotterAPI.Model;
 using JotterAPI.Model.DTOs.Files;
@@ -17,9 +18,9 @@ namespace JotterAPI.Services
 
         public FileServerClient() { }
 
-        public FileServerClient(HttpClient httpClient, IOptions<Hosts> hosts)
+        public FileServerClient(IHttpClientFactory clientFactory, IOptions<Hosts> hosts)
         {
-            _httpClient = httpClient;
+            _httpClient = clientFactory.CreateClient();
             _fileServerURL = hosts.Value.FileServerURL + "/files";
         }
 
@@ -31,7 +32,7 @@ namespace JotterAPI.Services
                 RelativePath = relativePath
             };
             var request = new HttpRequestMessage(HttpMethod.Post, _fileServerURL);
-            request.Content = new StringContent(JsonConvert.SerializeObject(requestBody));
+            request.Content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
             var response = await _httpClient.SendAsync(request);
             return await response.Content.ReadAsStringAsync();
         }

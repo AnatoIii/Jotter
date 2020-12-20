@@ -14,20 +14,26 @@ namespace JotterAPI.FileServer.Controllers
 			_fileService = fileService;
 		}
 
+		[HttpGet("ping")]
+		public string Ping()
+        {
+			return "pong";
+        }
+
 		[HttpPost]
-		public JsonResult AddFile([FromBody] SaveFileRequest request)
+		public IActionResult AddFile([FromBody] SaveFileRequest request)
 		{
-			return new JsonResult(_fileService.AddFile(request.File, request.RelativePath));
+			return Ok(_fileService.AddFile(request.File, request.RelativePath));
 		}
 
 		[HttpGet]
-		public JsonResult GetFileById([FromBody] string path)
+		public IActionResult GetFileById([FromQuery] string path)
 		{
-			return new JsonResult(_fileService.GetFileById(path));
+			return Ok(_fileService.GetFileById(path));
 		}
 
 		[HttpDelete]
-		public IActionResult DeleteFile([FromBody] string path)
+		public IActionResult DeleteFile([FromQuery] string path)
 		{
 			_fileService.DeleteFile(path);
 			return Ok();

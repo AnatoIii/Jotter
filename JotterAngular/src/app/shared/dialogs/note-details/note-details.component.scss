@@ -55,6 +55,28 @@
             }
         }
     }
+
+    .file {
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+
+        mat-icon {
+            color: black;
+        }
+
+        .delete-icon {
+            cursor: pointer;
+            display: none;
+        }
+
+        &:hover {
+            .delete-icon {
+                display: block;
+            }
+        }
+    }
+
     .attachment {
         display: inline-flex;
         text-decoration: none;

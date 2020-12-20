@@ -17,10 +17,15 @@
         </div>
         <input #fileUpload type="file" (click)="fileUpload.value = null" (change)="attachFile($event)" style="display:none">
     </div>
-    <a (click)="loadFile(file.id)" class="attachment" *ngFor="let file of note.files">
-        <mat-icon> attach_file</mat-icon>
-        <span>{{file.name}}</span>
-    </a>    
+    <div class="file" *ngFor="let file of note.files">
+        <a (click)="loadFile(file.id)" class="attachment">
+            <mat-icon> attach_file</mat-icon>
+            <span>{{file.name}}</span>
+        </a>    
+        <div class="delete-icon" (click)="deleteFile(file.id)">
+            <mat-icon [inline]="true">delete</mat-icon>
+        </div>
+    </div>
 </div>
 
 <div mat-dialog-actions class="actions">

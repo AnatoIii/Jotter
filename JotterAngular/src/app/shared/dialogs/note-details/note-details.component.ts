@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Note } from '../../classes/note';
 import { AddNoteComponent } from '../add-note/add-note.component';
 import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
+import { FileSaver } from 'file-saver';
 
 @Component({
   selector: 'app-note-details',
@@ -27,6 +28,21 @@ export class NoteDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.note = this.data;
+    this.noteService.getNote(this.data.id)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(
+        response => {
+          if (!response.isSuccessful) {
+            this.showError(response.error);
+            return;
+          }
+          console.log(response.responseResult);
+          this.note = response.responseResult;
+        },
+        error => {
+          this.showError(error.message.error || error.message);
+        }
+      );
   }
 
   ngOnDestroy(): void {
@@ -40,14 +56,10 @@ export class NoteDetailsComponent implements OnInit {
       .subscribe(
         response => {
           const base64 = response.responseResult.base64File;
-          window.open("data:application/pdf," + escape(base64));
-
-          //window.open("data:application/octet-stream;charset=utf-16le;base64,"+base64);
-
-          // const a = document.createElement("a");
-          // a.href = "data:application/octet-stream;base64,"+base64;
-          // a.download = "documentName.pdf"
-          // a.click();
+          const a = document.createElement("a");
+          a.href = base64;
+          a.download = response.responseResult.fileName;
+          a.click();
         },
         error => {
           this.showError(error.message.error || error.message);
@@ -57,7 +69,6 @@ export class NoteDetailsComponent implements OnInit {
 
   attachFile(event): void {
     const file: File = event.target.files[0];
-    //this.note.files.push({ id: '', name: file.name });
 
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -72,13 +83,26 @@ export class NoteDetailsComponent implements OnInit {
         .pipe(takeUntil(this.unsubscribe))
         .subscribe(
           response => {
-            console.log(response);
+            this.note.files = [...this.note.files, { id: response.responseResult.id, name: response.responseResult.fileName }];
           },
           error => {
             this.showError(error.message.error || error.message);
           }
         );
     };
+  }
+
+  deleteFile(fileId: string) {
+    this.noteService.deleteFiles(fileId)
+        .pipe(takeUntil(this.unsubscribe))
+        .subscribe(
+          () => {
+            this.note.files = this.note.files.filter(file => file.id != fileId);
+          },
+          error => {
+            this.showError(error.message.error || error.message);
+          }
+        );
   }
 
   onClick(): void {

@@ -34,6 +34,7 @@ namespace JotterAPI
 			services.Configure<Hosts>(Configuration.GetSection("Hosts"));
 			services.Configure<TokenConfig>(Configuration.GetSection("TokenConfig"));
 			services.AddControllers();
+			services.AddHttpClient();
 
 			services.AddHttpClient<FileServerClient>();
 			services.AddTransient<IFileService, FileService>();

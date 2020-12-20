@@ -194,6 +194,9 @@ export class MainComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(res => {
+      if (!res) {
+        return;
+      }
       if (res.deleted) {
         this.notes = this.notes.filter(n => n.id != note.id);
       }

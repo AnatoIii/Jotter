@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Note } from '../../classes/note';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
@@ -7,9 +7,9 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
   templateUrl: './add-note.component.html',
   styleUrls: ['./add-note.component.scss']
 })
-export class AddNoteComponent {
-  _name: string;
-  description: string;
+export class AddNoteComponent implements OnInit {
+  _name: string = '';
+  description: string = '';
   edit: boolean;
   oldName: string;
 
@@ -25,7 +25,6 @@ export class AddNoteComponent {
       this.description = data.description;  
     }    
   }
-
   getTitle(): string {
     return this.edit ? `Edit ${this.oldName}` : "Create new note";
   }
@@ -38,8 +37,8 @@ export class AddNoteComponent {
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      description: [''],
+      name: [this._name, [Validators.required, Validators.minLength(3)]],
+      description: [this.description],
     });
   }
 
