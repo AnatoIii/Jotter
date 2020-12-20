@@ -3,7 +3,7 @@
 </div>
 
 <div class="open_form" [ngClass]="{ 'opened': opened }">
-    <div class="icon" (click)="onOpenButtonClicked()">
+    <div class="icon" (click)="onOpenButtonClicked()" id="show_form">
         <mat-icon [inline]="true">keyboard_arrow_up</mat-icon>
     </div>
     <div class="registerText">
@@ -36,7 +36,7 @@
                     <mat-error *ngIf="repeatPassword.errors?.passwordMismatch">Password does not match</mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" (click)="registerUser()">Register</button>
+                <button mat-raised-button color="primary" (click)="registerUser()" id="register_button">Register</button>
  
             </form>
         </mat-card>

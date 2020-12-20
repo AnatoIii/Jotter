@@ -1,12 +1,14 @@
 ﻿using JotterAPI;
 using JotterAPI.DAL.Model;
 using JotterAPI.Model.DTOs.Files;
+using JotterAPI.Model.DTOs.User;
 using JotterAPI.Model.Reponses;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -19,6 +21,7 @@ namespace XUnitJotterAPIIntegrationTests
         private HttpClient _client;
         private User _dbUser;
         private Guid _noteId;
+        private string _token;
 
         public FileControllerTests(JotterWebApplicationFactory<Startup> factory)
         {
@@ -30,6 +33,25 @@ namespace XUnitJotterAPIIntegrationTests
                 Name = "Test User"
             };
             _noteId = Guid.Parse("2E20F240-ADD6-496F-A2BD-794043D94940");
+            _token = GetTokenAsync();
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+        }
+
+        private string GetTokenAsync()
+        {
+            var userLoginCredential = new UserLoginCredentials
+            {
+                Email = _dbUser.Email,
+                Password = "12345678"
+            };
+            string json = JsonConvert.SerializeObject(userLoginCredential);
+
+            var httpResponse = _client.PostAsync("login", new StringContent(json, Encoding.UTF8, "application/json")).Result;
+
+            var stringResponse = httpResponse.Content.ReadAsStringAsync().Result;
+            var userResponse = JsonConvert.DeserializeObject<Response<TokenResponse>>(stringResponse);
+
+            return userResponse.ResponseResult.AccessToken;
         }
 
         [Fact]
@@ -40,8 +62,7 @@ namespace XUnitJotterAPIIntegrationTests
             var fileToSaveData = new FileToSaveData {
                 Base64File = fileContent,
                 FileName = "testfile.jpeg",
-                NoteId = _noteId,
-                UserId = _dbUser.Id
+                NoteId = _noteId
             };
             string json = JsonConvert.SerializeObject(fileToSaveData);
 
@@ -55,34 +76,33 @@ namespace XUnitJotterAPIIntegrationTests
             Assert.Null(createFileResponse.Error);
             Assert.NotNull(createFileResponse.ResponseResult);
 
-            var httpResponseGet = await _client.GetAsync($"files?UserId={_dbUser.Id}&FileId={createFileResponse.ResponseResult.Id}");
+            var httpResponseGet = await _client.GetAsync($"files/{createFileResponse.ResponseResult.Id}");
             var stringResponseGet = await httpResponseGet.Content.ReadAsStringAsync();
             var getFileResponse = JsonConvert.DeserializeObject<Response<FileDataResult>>(stringResponseGet);
 
-            Assert.Equal(HttpStatusCode.OK, httpResponse.StatusCode);
-            Assert.True(createFileResponse.IsSuccessful);
-            Assert.Null(createFileResponse.Error);
+            Assert.Equal(HttpStatusCode.OK, httpResponseGet.StatusCode);
+            Assert.True(getFileResponse.IsSuccessful);
+            Assert.Null(getFileResponse.Error);
             Assert.Equal(fileContent, getFileResponse.ResponseResult.Base64File);
 
-            var httpResponseDelete = await _client.DeleteAsync($"files?UserId={_dbUser.Id}&FileId={createFileResponse.ResponseResult.Id}");
+            var httpResponseDelete = await _client.DeleteAsync($"files/{createFileResponse.ResponseResult.Id}");
             var stringResponseDelete = await httpResponseDelete.Content.ReadAsStringAsync();
             var deleteFileResponse = JsonConvert.DeserializeObject<Response<FileDataResult>>(stringResponseDelete);
 
-            Assert.Equal(HttpStatusCode.OK, httpResponse.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, httpResponseDelete.StatusCode);
             Assert.True(deleteFileResponse.IsSuccessful);
             Assert.Null(deleteFileResponse.Error);
         }
 
         [Fact]
-        public async Task AddFile_When_IncorrectUser_Then_Error()
+        public async Task AddFile_When_IncorrectNote_Then_Error()
         {
             var fileContent = Convert.ToBase64String(Encoding.ASCII.GetBytes("Some very userful image"));
 
             var fileToSaveData = new FileToSaveData {
                 Base64File = fileContent,
                 FileName = "testfile.jpeg",
-                NoteId = _noteId,
-                UserId = Guid.NewGuid()
+                NoteId = Guid.NewGuid()
             };
             string json = JsonConvert.SerializeObject(fileToSaveData);
 

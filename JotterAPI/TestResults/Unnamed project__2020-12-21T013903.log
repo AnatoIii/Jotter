@@ -1,0 +1,272 @@
+﻿2020-12-21T01:39:03.0614454+02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2020-12-21T01:39:03.0616046+02:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.5.8 in Framework netcore31 in x64 mode execution started
+2020-12-21T01:39:03.0616085+02:00;VSTestExecutionThread;Info;TestAdapter Location: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2020-12-21T01:39:03.0631327+02:00;VSTestExecutionThread;Info;Current UserName: 'anato', MachineName: 'LAPTOP-AT07B3I2'
+2020-12-21T01:39:03.0937131+02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:39:03.0939089+02:00;VSTestExecutionThread;Info;Output folder configured to "D:\University\6\Machno\JotterAPI\TestResults" (default)
+2020-12-21T01:39:03.0939670+02:00;VSTestExecutionThread;Info;Profile: 
+2020-12-21T01:39:03.1331453+02:00;VSTestExecutionThread;Info;Log file path: D:\University\6\Machno\JotterAPI\TestResults\Unnamed project__2020-12-21T013903.log
+2020-12-21T01:39:03.1384400+02:00;Thread#12;Info;Checking activation
+2020-12-21T01:39:03.2243933+02:00;Thread#12;Info;Activated.
+2020-12-21T01:39:03.2245938+02:00;Thread#12;Info;Activation check completed
+2020-12-21T01:39:03.2246531+02:00;Thread#12;Info;Starting test run
+2020-12-21T01:39:03.3086643+02:00;Thread#12;Info;Discovering target: Default
+2020-12-21T01:39:03.3089829+02:00;Thread#12;Info;Discovering tests from assembly: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:39:03.4015556+02:00;Thread#12;Info;Discovered tests from assembly: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:39:03.4030715+02:00:Test Suite Dump
+2020-12-21T01:39:03.4051066+02:00:#0: Unnamed project/ - 
+2020-12-21T01:39:03.4051456+02:00:#1: Default - 
+2020-12-21T01:39:03.4051506+02:00:#2: JotterAPI.Selenium - 
+2020-12-21T01:39:03.4051543+02:00:#3: User login - 
+2020-12-21T01:39:03.4051573+02:00:#5: User login - 
+2020-12-21T01:39:03.4051598+02:00:#7: User login - 
+2020-12-21T01:39:03.4051630+02:00:#9: User login - 
+2020-12-21T01:39:03.4066198+02:00:#4: User visited website for the first time - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+visited+website+for+the+first+time
+2020-12-21T01:39:03.4066754+02:00:#6: User visited website for the first time, incorrect data - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+visited+website+for+the+first+time%2c+incorrect+data
+2020-12-21T01:39:03.4066909+02:00:#8: User was registered before, incorrect data - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+was+registered+before%2c+incorrect+data
+2020-12-21T01:39:03.4067031+02:00:#10: User was registered before - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+was+registered+before
+2020-12-21T01:39:03.4067587+02:00:End: Test Suite Dump
+2020-12-21T01:39:03.4241985+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:39:03.4260313+02:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2020-12-21T01:39:03.4261564+02:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2020-12-21T01:39:03.4305137+02:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:39:03.4305377+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:39:03.4305413+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:39:03.4305478+02:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2020-12-21T01:39:03.4315412+02:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2020-12-21T01:39:03.4333207+02:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2020-12-21T01:39:03.4360622+02:00:Thread #0: creating new test thread executor for JotterAPI.Selenium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2020-12-21T01:39:03.4397029+02:00:Thread #0: Creating test assembly executor for execution model OutProc
+2020-12-21T01:39:03.4399900+02:00:Thread #0: Creating test assembly executor for execution model OutProc
+2020-12-21T01:39:03.4709604+02:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2020-12-21T01:39:03.4738370+02:00:starting Out Of Process Executor
+2020-12-21T01:39:03.5268967+02:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:03.5301552+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2020-12-21T01:39:03.5301767+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2020-12-21T01:39:03.5311924+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:03.5315223+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2020-12-21T01:39:03.5316249+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2020-12-21T01:39:03.5316526+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:03.5318529+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:39:03.5323427+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:39:03.5323526+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:03.5323554+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2020-12-21T01:39:03.5323826+02:00:[AssemblyCache] Found file 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2020-12-21T01:39:03.5327919+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2020-12-21T01:39:03.5337644+02:00:Starting callback TCP Rpc server
+2020-12-21T01:39:03.5512404+02:00:Asynchronously starting background TCP Rpc Server on port 32768
+2020-12-21T01:39:03.5512858+02:00:Started callback TCP Rpc server on port 32768
+2020-12-21T01:39:03.5512890+02:00:Starting logger TCP Rpc server
+2020-12-21T01:39:03.5532877+02:00:Asynchronously starting background TCP Rpc Server on port 32769
+2020-12-21T01:39:03.5533159+02:00:Started logger TCP Rpc server on port 32769
+2020-12-21T01:39:03.7101454+02:00:Executing test executor at 'dotnet' 'exec "D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 15048 --uniqueId "2020-12-21T013903" --outputFolder "D:\University\6\Machno\JotterAPI\TestResults" --callbackPort 32768 --loggerPort 32769' in 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:03.7170154+02:00:Executor with PID 39876 has been started successfully.
+2020-12-21T01:39:03.7203243+02:00:Out of Process Executor 39876 started
+2020-12-21T01:39:03.7203439+02:00:Waiting for endpoint
+2020-12-21T01:39:04.3129849+02:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=en-GB, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:04.3130873+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' from .deps.json file
+2020-12-21T01:39:04.3130931+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' from .deps.json
+2020-12-21T01:39:04.3131042+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:04.3131075+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\StreamJsonRpc.resources.dll'
+2020-12-21T01:39:04.3131371+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\StreamJsonRpc.resources.exe'
+2020-12-21T01:39:04.3131558+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:04.3131653+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:39:04.3132441+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:39:04.3132498+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:04.3132522+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\StreamJsonRpc.resources.dll'
+2020-12-21T01:39:04.3132803+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\StreamJsonRpc.resources.exe'
+2020-12-21T01:39:04.3133348+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:04.3237834+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:39:04.3238095+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:39:04.3238668+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:39:04.3239041+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:39:04.3240310+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:39:04.3240378+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:39:04.3240706+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:39:04.3240956+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:39:04.3242561+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:39:04.3242633+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:39:04.3247187+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:39:04.3247904+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:39:04.3257931+02:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:04.3266244+02:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:04.3266399+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2020-12-21T01:39:04.3266455+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2020-12-21T01:39:04.3266505+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:04.3266533+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2020-12-21T01:39:04.3266717+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2020-12-21T01:39:04.3266885+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:04.3266922+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:39:04.3267326+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:39:04.3267385+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:04.3267409+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2020-12-21T01:39:04.3267876+02:00:[AssemblyCache] Found file 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2020-12-21T01:39:04.3274425+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2020-12-21T01:39:04.5869539+02:00:Remote executor port received: 32770
+2020-12-21T01:39:04.5873724+02:00:Creating executor TCP client on port 32770
+2020-12-21T01:39:04.5879288+02:00:Created executor TCP client on port 32770
+2020-12-21T01:39:04.5879397+02:00:Connecting to remote executor TCP server
+2020-12-21T01:39:04.5897444+02:00:Connected remote executor TCP server
+2020-12-21T01:39:04.5901209+02:00:trying to connect to Out of Process Executor the 1 attempt
+2020-12-21T01:39:04.5901421+02:00:Connection to Out of Process Executor established in the 1 attempt
+2020-12-21T01:39:04.7497189+02:00:2020-12-21T01:39:04.7487222+02:00:OutOfProcessTestAssemblyExecutor: initialized for D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll on test thread #0
+2020-12-21T01:39:04.7541616+02:00:Endpoint 39876 started
+2020-12-21T01:39:04.7721210+02:00:2020-12-21T01:39:04.7717918+02:00:OutOfProcessTestAssemblyExecutor: running tests...
+2020-12-21T01:39:04.8936929+02:00:2020-12-21T01:39:04.8932885+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.5.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:39:04.8972119+02:00:2020-12-21T01:39:04.8967650+02:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2020-12-21T01:39:04.9002795+02:00:2020-12-21T01:39:04.8998710+02:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\anato\.nuget\packages\specflow\3.5.5\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2020-12-21T01:39:05.0131023+02:00:2020-12-21T01:39:05.0120538+02:00:Thread#0:T:-> Loading plugin D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\LivingDoc.SpecFlowPlugin.dll
+2020-12-21T01:39:05.0379740+02:00:2020-12-21T01:39:05.0366390+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:39:05.0403125+02:00:2020-12-21T01:39:05.0393211+02:00:Assembly resolving LivingDoc.Dtos, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+2020-12-21T01:39:05.0417376+02:00:2020-12-21T01:39:05.0409330+02:00:[AssemblyCache] Trying to resolve 'LivingDoc.Dtos' from .deps.json file
+2020-12-21T01:39:05.0430403+02:00:2020-12-21T01:39:05.0424239+02:00:[AssemblyCache] Resolved 'LivingDoc.Dtos' to 'C:\Users\anato\.nuget\packages\specflow.plus.livingdocplugin\3.5.186\lib\netstandard2.0\LivingDoc.Dtos.dll'
+2020-12-21T01:39:05.0476756+02:00:2020-12-21T01:39:05.0468916+02:00:Thread#0:T:-> Loading plugin D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2020-12-21T01:39:05.0741989+02:00:2020-12-21T01:39:05.0732438+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.5.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:39:05.0790229+02:00:2020-12-21T01:39:05.0782276+02:00:Thread#0:T:-> Using default config
+2020-12-21T01:39:05.0886700+02:00:2020-12-21T01:39:05.0882350+02:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2020-12-21T01:39:05.0891675+02:00:2020-12-21T01:39:05.0889541+02:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' from .deps.json file
+2020-12-21T01:39:05.0897782+02:00:2020-12-21T01:39:05.0895602+02:00:[AssemblyCache] Resolved 'Cucumber.Messages' to 'C:\Users\anato\.nuget\packages\cucumber.messages\6.0.1\lib\netstandard2.0\Cucumber.Messages.dll'
+2020-12-21T01:39:05.0914648+02:00:2020-12-21T01:39:05.0911141+02:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2020-12-21T01:39:05.0918349+02:00:2020-12-21T01:39:05.0916657+02:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' from .deps.json file
+2020-12-21T01:39:05.0923327+02:00:2020-12-21T01:39:05.0921328+02:00:[AssemblyCache] Resolved 'Google.Protobuf' to 'C:\Users\anato\.nuget\packages\google.protobuf\3.7.0\lib\netstandard1.0\Google.Protobuf.dll'
+2020-12-21T01:39:05.1027170+02:00:2020-12-21T01:39:05.1022920+02:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:05.1031043+02:00:2020-12-21T01:39:05.1029031+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2020-12-21T01:39:05.1037170+02:00:2020-12-21T01:39:05.1035456+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\anato\.nuget\packages\microsoft.testplatform.objectmodel\16.5.0\lib\netstandard2.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2020-12-21T01:39:05.1367775+02:00:2020-12-21T01:39:05.1364421+02:00:Assembly resolving Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+2020-12-21T01:39:05.1371610+02:00:2020-12-21T01:39:05.1369929+02:00:[AssemblyCache] Trying to resolve 'Utf8Json' from .deps.json file
+2020-12-21T01:39:05.1380804+02:00:2020-12-21T01:39:05.1377439+02:00:[AssemblyCache] Resolved 'Utf8Json' to 'C:\Users\anato\.nuget\packages\utf8json\1.3.7\lib\netstandard2.0\Utf8Json.dll'
+2020-12-21T01:39:05.3125813+02:00:Thread#0: Test #4/0 is started on thread #0
+2020-12-21T01:39:05.3353349+02:00:2020-12-21T01:39:05.3349225+02:00:Thread#0:B:Given User is not presented in system and such email is not registered.
+2020-12-21T01:39:05.3497291+02:00:2020-12-21T01:39:05.3493869+02:00:Assembly resolving WebDriver, Version=3.141.0.0, Culture=neutral, PublicKeyToken=null
+2020-12-21T01:39:05.3502234+02:00:2020-12-21T01:39:05.3499579+02:00:[AssemblyCache] Trying to resolve 'WebDriver' from .deps.json file
+2020-12-21T01:39:05.3507396+02:00:2020-12-21T01:39:05.3505447+02:00:[AssemblyCache] Resolved 'WebDriver' to 'C:\Users\anato\.nuget\packages\selenium.webdriver\3.141.0\lib\netstandard2.0\WebDriver.dll'
+2020-12-21T01:39:11.6068133+02:00:2020-12-21T01:39:11.6046473+02:00:Assembly resolving System.Net.Requests.resources, Version=4.1.2.0, Culture=en-GB, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:11.6084451+02:00:2020-12-21T01:39:11.6076664+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' from .deps.json file
+2020-12-21T01:39:11.6094216+02:00:2020-12-21T01:39:11.6089237+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' from .deps.json
+2020-12-21T01:39:11.6117614+02:00:2020-12-21T01:39:11.6110800+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:11.6155173+02:00:2020-12-21T01:39:11.6149261+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\System.Net.Requests.resources.dll'
+2020-12-21T01:39:11.6166187+02:00:2020-12-21T01:39:11.6160480+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\System.Net.Requests.resources.exe'
+2020-12-21T01:39:11.6174764+02:00:2020-12-21T01:39:11.6170783+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:39:11.6183681+02:00:2020-12-21T01:39:11.6179433+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:39:11.6194314+02:00:2020-12-21T01:39:11.6190366+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:39:11.6201853+02:00:2020-12-21T01:39:11.6197508+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:11.6209622+02:00:2020-12-21T01:39:11.6204947+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Net.Requests.resources.dll'
+2020-12-21T01:39:11.6221415+02:00:2020-12-21T01:39:11.6214084+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Net.Requests.resources.exe'
+2020-12-21T01:39:11.6233226+02:00:2020-12-21T01:39:11.6227214+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:39:11.6316047+02:00:2020-12-21T01:39:11.6309707+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:39:11.6322477+02:00:2020-12-21T01:39:11.6318947+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\System.Net.Requests.resources.dll'
+2020-12-21T01:39:11.6328475+02:00:2020-12-21T01:39:11.6325176+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\System.Net.Requests.resources.exe'
+2020-12-21T01:39:11.6334574+02:00:2020-12-21T01:39:11.6331080+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:39:11.6342364+02:00:2020-12-21T01:39:11.6338386+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:39:11.6349117+02:00:2020-12-21T01:39:11.6345546+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\System.Net.Requests.resources.dll'
+2020-12-21T01:39:11.6355075+02:00:2020-12-21T01:39:11.6351854+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\System.Net.Requests.resources.exe'
+2020-12-21T01:39:11.6359278+02:00:2020-12-21T01:39:11.6357263+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:39:11.6365030+02:00:2020-12-21T01:39:11.6362713+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:39:11.6368066+02:00:2020-12-21T01:39:11.6366183+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\System.Net.Requests.resources.dll'
+2020-12-21T01:39:11.6376975+02:00:2020-12-21T01:39:11.6372077+02:00:[AssemblyCache] Trying to resolve 'System.Net.Requests.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\System.Net.Requests.resources.exe'
+2020-12-21T01:39:11.6385196+02:00:2020-12-21T01:39:11.6381361+02:00:[AssemblyCache] Could not resolve 'System.Net.Requests.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:39:11.6401278+02:00:2020-12-21T01:39:11.6397905+02:00:Assembly resolving System.Net.Requests.resources, Version=4.1.2.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:39:11.6973335+02:00:2020-12-21T01:39:11.6968313+02:00:Thread#0:T:error: Process unexpectedly closed with status 0
+2020-12-21T01:39:11.7003230+02:00:2020-12-21T01:39:11.6998753+02:00:Thread#0:B:When User registered with credentials "test1@gmail.com", "12345678", "My name"
+2020-12-21T01:39:11.7042106+02:00:2020-12-21T01:39:11.7036683+02:00:Thread#0:T:skipped because of previous errors
+2020-12-21T01:39:11.7080139+02:00:2020-12-21T01:39:11.7077031+02:00:Thread#0:B:Then He successfully created and logged in
+2020-12-21T01:39:11.7085279+02:00:2020-12-21T01:39:11.7083668+02:00:Thread#0:T:skipped because of previous errors
+2020-12-21T01:39:11.7536908+02:00:Thread#0:TestItem#4:Scheduler: reschedule tests for testitem #4
+2020-12-21T01:39:11.7728484+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:39:11.7730924+02:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2020-12-21T01:39:11.7731121+02:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2020-12-21T01:39:11.7732726+02:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:39:11.7732843+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:39:11.7732877+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:39:11.7732914+02:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2020-12-21T01:39:11.7733754+02:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2020-12-21T01:39:11.7734379+02:00:Thread#0:Scheduler: with testItemExecutionIndex 1
+2020-12-21T01:39:11.8788914+02:00:Thread#0: Test #4/0 is finished on thread #0 as Failed within 6.5649512 seconds
+2020-12-21T01:39:11.8866337+02:00:Thread#0: Test #4/1 is started on thread #0
+2020-12-21T01:39:11.9011523+02:00:2020-12-21T01:39:11.9002285+02:00:Thread#0:B:Given User is not presented in system and such email is not registered.
+2020-12-21T01:39:26.7114898+02:00:2020-12-21T01:39:26.7107696+02:00:Thread#0:T:done: UserLoginSteps.GivenUserIsNotPresentedInSystemAndSuchEmailIsNotRegistered_() (14.8s)
+2020-12-21T01:39:26.7123670+02:00:2020-12-21T01:39:26.7122100+02:00:Thread#0:B:When User registered with credentials "test1@gmail.com", "12345678", "My name"
+2020-12-21T01:39:47.1482580+02:00:2020-12-21T01:39:47.1473734+02:00:Thread#0:T:done: UserLoginSteps.WhenUserRegisteredWithCredentials("test1@gmail.com", "12345678", "My name") (20.4s)
+2020-12-21T01:39:47.1491167+02:00:2020-12-21T01:39:47.1489619+02:00:Thread#0:B:Then He successfully created and logged in
+2020-12-21T01:39:49.1622890+02:00:2020-12-21T01:39:49.1616036+02:00:Thread#0:T:done: UserLoginSteps.ThenHeSuccessfullyCreatedAndLoggedIn() (2.0s)
+2020-12-21T01:39:49.1645771+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:39:49.1646119+02:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2020-12-21T01:39:49.1646153+02:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2020-12-21T01:39:49.1647141+02:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:39:49.1647187+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:39:49.1647200+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:39:49.1647216+02:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2020-12-21T01:39:49.1647628+02:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2020-12-21T01:39:49.1647959+02:00:Thread#0:Scheduler: with testItemExecutionIndex 2
+2020-12-21T01:39:49.1664132+02:00:Thread#0: Test #4/1 is finished on thread #0 as Succeeded within 37.2796871 seconds
+2020-12-21T01:39:49.1668289+02:00:Thread#0: Test #4/2 is started on thread #0
+2020-12-21T01:39:49.1676454+02:00:2020-12-21T01:39:49.1674580+02:00:Thread#0:B:Given User is not presented in system and such email is not registered.
+2020-12-21T01:40:03.0303850+02:00:2020-12-21T01:40:03.0297093+02:00:Thread#0:T:done: UserLoginSteps.GivenUserIsNotPresentedInSystemAndSuchEmailIsNotRegistered_() (13.9s)
+2020-12-21T01:40:03.0314606+02:00:2020-12-21T01:40:03.0311381+02:00:Thread#0:B:When User registered with credentials "test1@gmail.com", "12345678", "My name"
+2020-12-21T01:40:23.4568258+02:00:2020-12-21T01:40:23.4562318+02:00:Thread#0:T:done: UserLoginSteps.WhenUserRegisteredWithCredentials("test1@gmail.com", "12345678", "My name") (20.4s)
+2020-12-21T01:40:23.4579871+02:00:2020-12-21T01:40:23.4575327+02:00:Thread#0:B:Then He successfully created and logged in
+2020-12-21T01:40:25.4687952+02:00:2020-12-21T01:40:25.4683840+02:00:Thread#0:T:done: UserLoginSteps.ThenHeSuccessfullyCreatedAndLoggedIn() (2.0s)
+2020-12-21T01:40:25.4710925+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:40:25.4711339+02:00:Thread#:Scheduler: testitem #6 from normal test queue 
+2020-12-21T01:40:25.4711450+02:00:Thread#0:Scheduler: considering testitem #6 for thread 0
+2020-12-21T01:40:25.4712023+02:00:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:40:25.4712102+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:40:25.4712146+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:40:25.4712224+02:00:Thread#0:Scheduler: using testitem #6 for thread 0
+2020-12-21T01:40:25.4712739+02:00:Thread#0:Scheduler: Test #6 is scheduled for thread
+2020-12-21T01:40:25.4713207+02:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2020-12-21T01:40:25.4751420+02:00:Thread#0: Test #4/2 is finished on thread #0 as Succeeded within 36.3082444 seconds
+2020-12-21T01:40:25.4759386+02:00:Thread#0: Test #6/0 is started on thread #0
+2020-12-21T01:40:25.4787127+02:00:2020-12-21T01:40:25.4784429+02:00:Thread#0:B:Given User is not presented in system and such email is registered.
+2020-12-21T01:40:40.3628027+02:00:2020-12-21T01:40:40.3623587+02:00:Thread#0:T:done: UserLoginSteps.GivenUserIsNotPresentedInSystemAndSuchEmailIsRegistered_() (14.9s)
+2020-12-21T01:40:40.3637167+02:00:2020-12-21T01:40:40.3634078+02:00:Thread#0:B:When User registered "test@gmail.com", "12345678", "My name"
+2020-12-21T01:41:01.2107396+02:00:2020-12-21T01:41:01.2103272+02:00:Thread#0:T:done: UserLoginSteps.WhenUserRegistered("test@gmail.com", "12345678", "My name") (20.8s)
+2020-12-21T01:41:01.2115858+02:00:2020-12-21T01:41:01.2112302+02:00:Thread#0:B:Then User gets an error mesasge
+2020-12-21T01:41:03.2229145+02:00:2020-12-21T01:41:03.2225534+02:00:Thread#0:T:error: TypeError: document.getElementById(...) is null
+2020-12-21T01:41:03.2251588+02:00:Thread#0:TestItem#6:Scheduler: reschedule tests for testitem #6
+2020-12-21T01:41:03.2256949+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:41:03.2257200+02:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+2020-12-21T01:41:03.2257253+02:00:Thread#0:Scheduler: considering testitem #6 for thread 0
+2020-12-21T01:41:03.2257966+02:00:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:41:03.2258012+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:41:03.2258031+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:41:03.2258067+02:00:Thread#0:Scheduler: using testitem #6 for thread 0
+2020-12-21T01:41:03.2258431+02:00:Thread#0:Scheduler: Test #6 is scheduled for thread
+2020-12-21T01:41:03.2258787+02:00:Thread#0:Scheduler: with testItemExecutionIndex 1
+2020-12-21T01:41:03.2280065+02:00:Thread#0: Test #6/0 is finished on thread #0 as Failed within 37.7519508 seconds
+2020-12-21T01:41:03.2285744+02:00:Thread#0: Test #6/1 is started on thread #0
+2020-12-21T01:41:03.2297589+02:00:2020-12-21T01:41:03.2294541+02:00:Thread#0:B:Given User is not presented in system and such email is registered.
+2020-12-21T01:41:17.1745146+02:00:2020-12-21T01:41:17.1738158+02:00:Thread#0:T:done: UserLoginSteps.GivenUserIsNotPresentedInSystemAndSuchEmailIsRegistered_() (13.9s)
+2020-12-21T01:41:17.1756784+02:00:2020-12-21T01:41:17.1753266+02:00:Thread#0:B:When User registered "test@gmail.com", "12345678", "My name"
+2020-12-21T01:41:37.5929460+02:00:2020-12-21T01:41:37.5924246+02:00:Thread#0:T:done: UserLoginSteps.WhenUserRegistered("test@gmail.com", "12345678", "My name") (20.4s)
+2020-12-21T01:41:37.5938938+02:00:2020-12-21T01:41:37.5936056+02:00:Thread#0:B:Then User gets an error mesasge
+2020-12-21T01:41:39.6046609+02:00:2020-12-21T01:41:39.6042704+02:00:Thread#0:T:error: TypeError: document.getElementById(...) is null
+2020-12-21T01:41:39.6072200+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:41:39.6072511+02:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #6
+2020-12-21T01:41:39.6072566+02:00:Thread#0:Scheduler: considering testitem #6 for thread 0
+2020-12-21T01:41:39.6073367+02:00:Thread#0:TestItem#6:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:41:39.6073417+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:41:39.6073436+02:00:Thread#0:TestItem#6:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:41:39.6073475+02:00:Thread#0:Scheduler: using testitem #6 for thread 0
+2020-12-21T01:41:39.6073785+02:00:Thread#0:Scheduler: Test #6 is scheduled for thread
+2020-12-21T01:41:39.6074118+02:00:Thread#0:Scheduler: with testItemExecutionIndex 2
+2020-12-21T01:41:39.6095267+02:00:Thread#0: Test #6/1 is finished on thread #0 as Failed within 36.3808301 seconds
+2020-12-21T01:41:39.6101397+02:00:Thread#0: Test #6/2 is started on thread #0
+2020-12-21T01:41:39.6114608+02:00:2020-12-21T01:41:39.6111871+02:00:Thread#0:B:Given User is not presented in system and such email is registered.
+2020-12-21T01:41:54.4602205+02:00:2020-12-21T01:41:54.4598897+02:00:Thread#0:T:done: UserLoginSteps.GivenUserIsNotPresentedInSystemAndSuchEmailIsRegistered_() (14.8s)
+2020-12-21T01:41:54.4610716+02:00:2020-12-21T01:41:54.4605597+02:00:Thread#0:B:When User registered "test@gmail.com", "12345678", "My name"
+2020-12-21T01:41:57.1260911+02:00:2020-12-21T01:41:57.1255370+02:00:Thread#0:T:error: Failed to decode response from marionette
+2020-12-21T01:41:57.1270201+02:00:2020-12-21T01:41:57.1268327+02:00:Thread#0:B:Then User gets an error mesasge
+2020-12-21T01:41:57.1275967+02:00:2020-12-21T01:41:57.1274505+02:00:Thread#0:T:skipped because of previous errors
+2020-12-21T01:41:57.1289231+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:41:57.1289731+02:00:Thread#:Scheduler: testitem #8 from normal test queue 
+2020-12-21T01:41:57.1289842+02:00:Thread#0:Scheduler: considering testitem #8 for thread 0
+2020-12-21T01:41:57.1290786+02:00:Thread#0:TestItem#8:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:41:57.1290874+02:00:Thread#0:TestItem#8:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:41:57.1290911+02:00:Thread#0:TestItem#8:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:41:57.1290974+02:00:Thread#0:Scheduler: using testitem #8 for thread 0
+2020-12-21T01:41:57.1292479+02:00:Thread#0:Scheduler: Test #8 is scheduled for thread
+2020-12-21T01:41:57.1293521+02:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2020-12-21T01:41:57.1319991+02:00:Thread#0: Test #6/2 is finished on thread #0 as Failed within 17.5217588 seconds
+2020-12-21T01:41:57.1325170+02:00:Thread#0: Test #8/0 is started on thread #0
+2020-12-21T01:41:57.1363450+02:00:2020-12-21T01:41:57.1360280+02:00:Thread#0:B:Given User is presented in system, but entered incorrect login and password.

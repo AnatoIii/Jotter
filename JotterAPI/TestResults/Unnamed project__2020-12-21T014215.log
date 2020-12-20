@@ -1,0 +1,142 @@
+﻿2020-12-21T01:42:15.0597101+02:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2020-12-21T01:42:15.0601571+02:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.5.8 in Framework netcore31 in x64 mode execution started
+2020-12-21T01:42:15.0601639+02:00;VSTestExecutionThread;Info;TestAdapter Location: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2020-12-21T01:42:15.0622725+02:00;VSTestExecutionThread;Info;Current UserName: 'anato', MachineName: 'LAPTOP-AT07B3I2'
+2020-12-21T01:42:15.0982465+02:00;VSTestExecutionThread;Info;SpecRun: running tests in D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:42:15.0984764+02:00;VSTestExecutionThread;Info;Output folder configured to "D:\University\6\Machno\JotterAPI\TestResults" (default)
+2020-12-21T01:42:15.0986116+02:00;VSTestExecutionThread;Info;Profile: 
+2020-12-21T01:42:15.1458609+02:00;VSTestExecutionThread;Info;Log file path: D:\University\6\Machno\JotterAPI\TestResults\Unnamed project__2020-12-21T014215.log
+2020-12-21T01:42:15.1515694+02:00;Thread#12;Info;Checking activation
+2020-12-21T01:42:15.2434958+02:00;Thread#12;Info;Activated.
+2020-12-21T01:42:15.2437296+02:00;Thread#12;Info;Activation check completed
+2020-12-21T01:42:15.2437926+02:00;Thread#12;Info;Starting test run
+2020-12-21T01:42:15.3245973+02:00;Thread#12;Info;Discovering target: Default
+2020-12-21T01:42:15.3251325+02:00;Thread#12;Info;Discovering tests from assembly: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:42:15.4046817+02:00;Thread#12;Info;Discovered tests from assembly: D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll
+2020-12-21T01:42:15.4058627+02:00:Test Suite Dump
+2020-12-21T01:42:15.4078535+02:00:#0: Unnamed project/ - 
+2020-12-21T01:42:15.4079017+02:00:#1: Default - 
+2020-12-21T01:42:15.4079064+02:00:#2: JotterAPI.Selenium - 
+2020-12-21T01:42:15.4079099+02:00:#3: User login - 
+2020-12-21T01:42:15.4079130+02:00:#5: User login - 
+2020-12-21T01:42:15.4079153+02:00:#7: User login - 
+2020-12-21T01:42:15.4079179+02:00:#9: User login - 
+2020-12-21T01:42:15.4096278+02:00:#4: User visited website for the first time - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+visited+website+for+the+first+time
+2020-12-21T01:42:15.4096927+02:00:#6: User visited website for the first time, incorrect data - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+visited+website+for+the+first+time%2c+incorrect+data
+2020-12-21T01:42:15.4097099+02:00:#8: User was registered before, incorrect data - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+was+registered+before%2c+incorrect+data
+2020-12-21T01:42:15.4097212+02:00:#10: User was registered before - TestAssembly:JotterAPI.Selenium/Feature:User+login/Scenario:User+was+registered+before
+2020-12-21T01:42:15.4097796+02:00:End: Test Suite Dump
+2020-12-21T01:42:15.4261138+02:00:Thread#0:Scheduler: get next test for thread 0
+2020-12-21T01:42:15.4286096+02:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2020-12-21T01:42:15.4286971+02:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2020-12-21T01:42:15.4319027+02:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2020-12-21T01:42:15.4319244+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2020-12-21T01:42:15.4319279+02:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2020-12-21T01:42:15.4319318+02:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2020-12-21T01:42:15.4326984+02:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2020-12-21T01:42:15.4342266+02:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2020-12-21T01:42:15.4367221+02:00:Thread #0: creating new test thread executor for JotterAPI.Selenium, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2020-12-21T01:42:15.4390397+02:00:Thread #0: Creating test assembly executor for execution model OutProc
+2020-12-21T01:42:15.4392145+02:00:Thread #0: Creating test assembly executor for execution model OutProc
+2020-12-21T01:42:15.4422367+02:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2020-12-21T01:42:15.4441116+02:00:starting Out Of Process Executor
+2020-12-21T01:42:15.4456412+02:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:42:15.4478821+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2020-12-21T01:42:15.4478926+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2020-12-21T01:42:15.4488925+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.4492197+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2020-12-21T01:42:15.4492733+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2020-12-21T01:42:15.4492903+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.4494994+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:42:15.4500833+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:42:15.4501000+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:42:15.4501045+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2020-12-21T01:42:15.4501471+02:00:[AssemblyCache] Found file 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2020-12-21T01:42:15.4505675+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2020-12-21T01:42:15.4512541+02:00:Starting callback TCP Rpc server
+2020-12-21T01:42:15.4772687+02:00:Asynchronously starting background TCP Rpc Server on port 32768
+2020-12-21T01:42:15.4773290+02:00:Started callback TCP Rpc server on port 32768
+2020-12-21T01:42:15.4773332+02:00:Starting logger TCP Rpc server
+2020-12-21T01:42:15.4807243+02:00:Asynchronously starting background TCP Rpc Server on port 32769
+2020-12-21T01:42:15.4807577+02:00:Started logger TCP Rpc server on port 32769
+2020-12-21T01:42:15.5745037+02:00:Executing test executor at 'dotnet' 'exec "D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 37312 --uniqueId "2020-12-21T014215" --outputFolder "D:\University\6\Machno\JotterAPI\TestResults" --callbackPort 32768 --loggerPort 32769' in 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.5820710+02:00:Executor with PID 29244 has been started successfully.
+2020-12-21T01:42:15.5851629+02:00:Out of Process Executor 29244 started
+2020-12-21T01:42:15.5851792+02:00:Waiting for endpoint
+2020-12-21T01:42:15.9607229+02:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=en-GB, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:42:15.9608420+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' from .deps.json file
+2020-12-21T01:42:15.9608482+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' from .deps.json
+2020-12-21T01:42:15.9608608+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.9608641+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\StreamJsonRpc.resources.dll'
+2020-12-21T01:42:15.9608941+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\StreamJsonRpc.resources.exe'
+2020-12-21T01:42:15.9609132+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.9609224+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:42:15.9610143+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:42:15.9610208+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:42:15.9610236+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\StreamJsonRpc.resources.dll'
+2020-12-21T01:42:15.9610453+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\StreamJsonRpc.resources.exe'
+2020-12-21T01:42:15.9610826+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:42:15.9696592+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:42:15.9696822+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:42:15.9697369+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:42:15.9697765+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.10'
+2020-12-21T01:42:15.9699349+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:42:15.9699438+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:42:15.9699924+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:42:15.9700258+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.10'
+2020-12-21T01:42:15.9702154+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:42:15.9702282+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\StreamJsonRpc.resources.dll'
+2020-12-21T01:42:15.9703142+02:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10\StreamJsonRpc.resources.exe'
+2020-12-21T01:42:15.9704309+02:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.10'
+2020-12-21T01:42:15.9716039+02:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:42:15.9724318+02:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:42:15.9724451+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2020-12-21T01:42:15.9724489+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2020-12-21T01:42:15.9724533+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.9724560+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2020-12-21T01:42:15.9724784+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2020-12-21T01:42:15.9724969+02:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1'
+2020-12-21T01:42:15.9725010+02:00:TargetFramework: .NETCoreApp,Version=v3.1
+2020-12-21T01:42:15.9725226+02:00:Tfm: netcoreapp3.1
+2020-12-21T01:42:15.9725269+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2020-12-21T01:42:15.9725294+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2020-12-21T01:42:15.9725545+02:00:[AssemblyCache] Found file 'D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2020-12-21T01:42:15.9730194+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2020-12-21T01:42:16.2547976+02:00:Remote executor port received: 32770
+2020-12-21T01:42:16.2551407+02:00:Creating executor TCP client on port 32770
+2020-12-21T01:42:16.2555566+02:00:Created executor TCP client on port 32770
+2020-12-21T01:42:16.2555644+02:00:Connecting to remote executor TCP server
+2020-12-21T01:42:16.2563658+02:00:Connected remote executor TCP server
+2020-12-21T01:42:16.2565153+02:00:trying to connect to Out of Process Executor the 1 attempt
+2020-12-21T01:42:16.2565245+02:00:Connection to Out of Process Executor established in the 1 attempt
+2020-12-21T01:42:16.4007544+02:00:2020-12-21T01:42:16.3997428+02:00:OutOfProcessTestAssemblyExecutor: initialized for D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\JotterAPI.Selenium.dll on test thread #0
+2020-12-21T01:42:16.4056566+02:00:Endpoint 29244 started
+2020-12-21T01:42:16.4232587+02:00:2020-12-21T01:42:16.4229935+02:00:OutOfProcessTestAssemblyExecutor: running tests...
+2020-12-21T01:42:16.5540959+02:00:2020-12-21T01:42:16.5538027+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.5.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:42:16.5569163+02:00:2020-12-21T01:42:16.5566390+02:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2020-12-21T01:42:16.5599317+02:00:2020-12-21T01:42:16.5595485+02:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\anato\.nuget\packages\specflow\3.5.5\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2020-12-21T01:42:16.6610392+02:00:2020-12-21T01:42:16.6600093+02:00:Thread#0:T:-> Loading plugin D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\LivingDoc.SpecFlowPlugin.dll
+2020-12-21T01:42:16.6642967+02:00:2020-12-21T01:42:16.6633251+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:42:16.6665916+02:00:2020-12-21T01:42:16.6655353+02:00:Assembly resolving LivingDoc.Dtos, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null
+2020-12-21T01:42:16.6684002+02:00:2020-12-21T01:42:16.6673260+02:00:[AssemblyCache] Trying to resolve 'LivingDoc.Dtos' from .deps.json file
+2020-12-21T01:42:16.6697772+02:00:2020-12-21T01:42:16.6691470+02:00:[AssemblyCache] Resolved 'LivingDoc.Dtos' to 'C:\Users\anato\.nuget\packages\specflow.plus.livingdocplugin\3.5.186\lib\netstandard2.0\LivingDoc.Dtos.dll'
+2020-12-21T01:42:16.6767836+02:00:2020-12-21T01:42:16.6759951+02:00:Thread#0:T:-> Loading plugin D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2020-12-21T01:42:16.6781320+02:00:2020-12-21T01:42:16.6776068+02:00:Assembly resolving TechTalk.SpecFlow, Version=3.5.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2020-12-21T01:42:16.6826821+02:00:2020-12-21T01:42:16.6821284+02:00:Thread#0:T:-> Using default config
+2020-12-21T01:42:16.6951367+02:00:2020-12-21T01:42:16.6942720+02:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2020-12-21T01:42:16.6964331+02:00:2020-12-21T01:42:16.6958163+02:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' from .deps.json file
+2020-12-21T01:42:16.6977181+02:00:2020-12-21T01:42:16.6971705+02:00:[AssemblyCache] Resolved 'Cucumber.Messages' to 'C:\Users\anato\.nuget\packages\cucumber.messages\6.0.1\lib\netstandard2.0\Cucumber.Messages.dll'
+2020-12-21T01:42:16.6999998+02:00:2020-12-21T01:42:16.6992618+02:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2020-12-21T01:42:16.7013580+02:00:2020-12-21T01:42:16.7006832+02:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' from .deps.json file
+2020-12-21T01:42:16.7025557+02:00:2020-12-21T01:42:16.7019365+02:00:[AssemblyCache] Resolved 'Google.Protobuf' to 'C:\Users\anato\.nuget\packages\google.protobuf\3.7.0\lib\netstandard1.0\Google.Protobuf.dll'
+2020-12-21T01:42:16.7129077+02:00:2020-12-21T01:42:16.7121458+02:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2020-12-21T01:42:16.7136865+02:00:2020-12-21T01:42:16.7133285+02:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2020-12-21T01:42:16.7142506+02:00:2020-12-21T01:42:16.7140920+02:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\anato\.nuget\packages\microsoft.testplatform.objectmodel\16.5.0\lib\netstandard2.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2020-12-21T01:42:16.7466064+02:00:2020-12-21T01:42:16.7463091+02:00:Assembly resolving Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+2020-12-21T01:42:16.7469442+02:00:2020-12-21T01:42:16.7467853+02:00:[AssemblyCache] Trying to resolve 'Utf8Json' from .deps.json file
+2020-12-21T01:42:16.7474460+02:00:2020-12-21T01:42:16.7472231+02:00:[AssemblyCache] Resolved 'Utf8Json' to 'C:\Users\anato\.nuget\packages\utf8json\1.3.7\lib\netstandard2.0\Utf8Json.dll'
+2020-12-21T01:42:16.9363252+02:00:Thread#0: Test #4/0 is started on thread #0
+2020-12-21T01:42:16.9654193+02:00:2020-12-21T01:42:16.9649798+02:00:Thread#0:B:Given User is not presented in system and such email is not registered.
+2020-12-21T01:42:16.9806527+02:00:2020-12-21T01:42:16.9802835+02:00:Assembly resolving WebDriver, Version=3.141.0.0, Culture=neutral, PublicKeyToken=null
+2020-12-21T01:42:16.9810475+02:00:2020-12-21T01:42:16.9808443+02:00:[AssemblyCache] Trying to resolve 'WebDriver' from .deps.json file
+2020-12-21T01:42:16.9815848+02:00:2020-12-21T01:42:16.9813754+02:00:[AssemblyCache] Resolved 'WebDriver' to 'C:\Users\anato\.nuget\packages\selenium.webdriver\3.141.0\lib\netstandard2.0\WebDriver.dll'

@@ -15,7 +15,8 @@ namespace JotterAPI.Selenium.Features.Login3
         {
             var service = FirefoxDriverService.CreateDefaultService(@"D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\Drivers", "geckodriver.exe");
             _driver = new FirefoxDriver(service);
-            _driver.Navigate().GoToUrl("http://localhost:3000/register");
+            _driver.Navigate().GoToUrl("http://localhost:4200/register");
+            _driver.FindElement(By.Id("show_form")).Click();
         }
         
         [When(@"User registered ""(.*)"", ""(.*)"", ""(.*)""")]
@@ -30,7 +31,7 @@ namespace JotterAPI.Selenium.Features.Login3
             var passwordInput = _driver.FindElement(By.Id("password"));
             passwordInput.SendKeys(password);
 
-            var repeatPasswordInput = _driver.FindElement(By.Id("confirm"));
+            var repeatPasswordInput = _driver.FindElement(By.Id("repeatPassword"));
             repeatPasswordInput.SendKeys(password);
             _driver.FindElement(By.Id("register_button")).Click();
         }
@@ -39,7 +40,7 @@ namespace JotterAPI.Selenium.Features.Login3
         public void ThenUserGetsAnErrorMesasge()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-            var data = (string)js.ExecuteScript("return document.getElementsByClassName('ant-notification-notice-description')[0].textContent;");
+            var data = (string)js.ExecuteScript("return document.getElementById('toast-container').textContent;");
 
             _driver.Close();
             if (!data.Contains("such email already registered"))

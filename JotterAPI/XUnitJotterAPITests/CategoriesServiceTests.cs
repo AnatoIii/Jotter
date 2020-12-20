@@ -15,11 +15,11 @@ namespace XUnitJotterAPITests
 			var categoriesService = new CategoriesService(_dbContext);
 
 			var category = new NewCategory { 
-				Name = "My perfect category",
-				UserId = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C")
+				Name = "My perfect category"
 			};
+			var userId = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C");
 
-			var createdCategoryResponse = categoriesService.AddCategory(category).Result;
+			var createdCategoryResponse = categoriesService.AddCategory(category, userId).Result;
 
 			Assert.True(createdCategoryResponse.IsSuccessful);
 			Assert.Null(createdCategoryResponse.Error);
@@ -32,11 +32,11 @@ namespace XUnitJotterAPITests
 			var categoriesService = new CategoriesService(_dbContext);
 
 			var category = new NewCategory {
-				Name = "My perfect category which exists",
-				UserId = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C")
+				Name = "My perfect category which exists"
 			};
-
-			var createdCategoryResponse = categoriesService.AddCategory(category).Result;
+			var userId = Guid.Parse("8273A004-371D-48A5-B7DD-02145B8E4E3C");
+			
+			var createdCategoryResponse = categoriesService.AddCategory(category, userId).Result;
 			var savedCategory = _dbContext.Categories.FirstOrDefault(c => c.Id == createdCategoryResponse.ResponseResult.Id);
 
 			Assert.True(createdCategoryResponse.IsSuccessful);
@@ -50,11 +50,11 @@ namespace XUnitJotterAPITests
 			var categoriesService = new CategoriesService(_dbContext);
 
 			var category = new NewCategory {
-				Name = "My perfect category which exists",
-				UserId = Guid.Parse("34F0D89E-98B3-4910-BF7B-FA5CBF1BA221")
+				Name = "My perfect category which exists"
 			};
+			var userId = Guid.Parse("34F0D89E-98B3-4910-BF7B-FA5CBF1BA221");
 
-			var createdCategoryResponse = categoriesService.AddCategory(category).Result;
+			var createdCategoryResponse = categoriesService.AddCategory(category, userId).Result;
 
 			Assert.False(createdCategoryResponse.IsSuccessful);
 			Assert.NotNull(createdCategoryResponse.Error);

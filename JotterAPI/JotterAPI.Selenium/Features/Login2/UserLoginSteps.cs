@@ -15,7 +15,8 @@ namespace JotterAPI.Selenium.Features.Login2
         {
             var service = FirefoxDriverService.CreateDefaultService(@"D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\Drivers", "geckodriver.exe");
             _driver = new FirefoxDriver(service);
-            _driver.Navigate().GoToUrl("http://localhost:3000");
+            _driver.Navigate().GoToUrl("http://localhost:4200");
+            _driver.FindElement(By.Id("show_form")).Click();
         }
         
         [When(@"User entered incorrect login, password ""(.*)"", ""(.*)""")]
@@ -33,7 +34,7 @@ namespace JotterAPI.Selenium.Features.Login2
         public void ThenHeGetsAnErrorMessage()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-            var data = (string)js.ExecuteScript("return document.getElementsByClassName('ant-notification-notice-description')[0].textContent;");
+            var data = (string)js.ExecuteScript("return document.getElementById('toast-container').textContent;");
 
             if (!data.Contains("Incorrect"))
             {

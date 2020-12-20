@@ -15,7 +15,8 @@ namespace JotterAPI.Selenium.Features.Login4
         {
             var service = FirefoxDriverService.CreateDefaultService(@"D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\Drivers", "geckodriver.exe");
             _driver = new FirefoxDriver(service);
-            _driver.Navigate().GoToUrl("http://localhost:3000/register");
+            _driver.Navigate().GoToUrl("http://localhost:4200/register");
+            _driver.FindElement(By.Id("show_form")).Click();
         }
 
         [When(@"User registered with credentials ""(.*)"", ""(.*)"", ""(.*)""")]
@@ -30,7 +31,7 @@ namespace JotterAPI.Selenium.Features.Login4
             var passwordInput = _driver.FindElement(By.Id("password"));
             passwordInput.SendKeys(password);
 
-            var repeatPasswordInput = _driver.FindElement(By.Id("confirm"));
+            var repeatPasswordInput = _driver.FindElement(By.Id("repeatPassword"));
             repeatPasswordInput.SendKeys(password);
             _driver.FindElement(By.Id("register_button")).Click();
         }

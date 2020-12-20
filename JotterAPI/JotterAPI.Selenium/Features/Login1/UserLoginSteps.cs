@@ -22,10 +22,11 @@ namespace JotterAPI.Selenium.Features.Login1
         {
             var service = FirefoxDriverService.CreateDefaultService(@"D:\University\6\Machno\JotterAPI\JotterAPI.Selenium\Drivers", "geckodriver.exe");
             _driver = new FirefoxDriver(service);
-            _driver.Navigate().GoToUrl("http://localhost:3000");
+            _driver.Navigate().GoToUrl("http://localhost:4200");
 
             _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(1);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(1);
+            _driver.FindElement(By.Id("show_form")).Click();
         }
 
         [When(@"User entered correct login password ""(.*)"", ""(.*)""")]

@@ -56,6 +56,10 @@ export class LoginComponent implements OnInit {
         .pipe(takeUntil(this.unsubscribe))
         .subscribe(
           response => {
+            if (!response.isSuccessful) {
+              this.showError(response.error);
+              return;
+            }
             this.router.navigate(['/main']);
             this.authService.setToken(response.responseResult.accessToken);
             this.authService.saveUser();

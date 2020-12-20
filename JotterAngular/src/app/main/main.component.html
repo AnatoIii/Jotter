@@ -50,7 +50,7 @@
             <div class="notesList" *ngIf="notes != undefined && notes.length > 0">
                 <div class="note listitem" *ngFor="let note of notes" (click)="openDialog(note)">
                     <p class="note-title">{{note.name }}</p>
-                    <p>{{ note.description }}</p>
+                    <p class="description">{{ note.description }}</p>
                 </div>
             </div>
         </div>

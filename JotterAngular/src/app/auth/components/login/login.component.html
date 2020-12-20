@@ -3,7 +3,7 @@
 </div>
 
 <div class="open_form" [ngClass]="{ 'opened': opened }">
-    <div class="icon" (click)="onOpenButtonClicked()">
+    <div class="icon" id="show_form" (click)="onOpenButtonClicked()">
         <mat-icon [inline]="true">keyboard_arrow_up</mat-icon>
     </div>
     <div class="loginText">
@@ -24,7 +24,7 @@
                     <mat-error *ngIf="!password.value">Password is required</mat-error>
                 </mat-form-field>
 
-                <button mat-raised-button color="primary" (click)="loginUser()">Login</button>
+                <button mat-raised-button color="primary" (click)="loginUser()" id="login_button">Login</button>
             </form>
         </mat-card>
     </div>
