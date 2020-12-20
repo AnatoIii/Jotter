@@ -181,7 +181,7 @@ export class MainComponent implements OnInit {
 
   openDialog(note: Note): void {
     this.dialog.open(NoteDetailsComponent, {
-      width: '400px',
+      width: '600px',
       data: note
     });
   }

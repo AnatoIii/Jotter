@@ -1,9 +1,16 @@
 @import '../../../../assets//styles//global.scss';
+@import 'src/assets/styles/variables.scss';
 
 :host {
     display: block;
-    width: 80%;
-    margin: 0 auto;
+    margin: 10px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: $accentColor;
+    font-size: 24px;
 }
 
 .name {
@@ -15,8 +22,38 @@
     margin-bottom: 20px;
 }
 
-.attachment {
-    display: inline-flex;
-    text-decoration: none;
-    color: $main;
+.attachments {
+    .attachment-title {
+        font-size: 16px;
+        color: $accentColor;
+        margin-bottom: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+            margin: 0 10px 0 0;
+        }
+
+        .attach-file {
+            color: $dataColor;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background: $dataColor;
+                color: white;
+            }
+        }
+    }
+
+    .attachment {
+        display: inline-flex;
+        text-decoration: none;
+        color: $main;
+    }
 }

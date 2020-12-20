@@ -1,4 +1,4 @@
-<p class="name">
+<p class="title">
     {{ note.name }}
 </p>
 
@@ -6,14 +6,23 @@
     {{ note.description }}
 </p>
 
-<p>Attachments</p>
-<a href="#" class="attachment" *ngFor="let file of note.files">
-    <mat-icon> attach_file</mat-icon>
-    {{file.fileName}}
-</a>
+<div class="attachments">
+    <div class="attachment-title">
+        <p>Attachments</p>
+        <div class="attach-file">
+            <div>
+                <mat-icon [inline]="true">add</mat-icon>
+            </div>
+            <p>Attach file</p>
+        </div>
+    </div>
+    <a href="#" class="attachment" *ngFor="let file of note.files">
+        <mat-icon> attach_file</mat-icon>
+        {{file.fileName}}
+    </a>
+</div>
 
 <div mat-dialog-actions class="space-between">
-    <button mat-button>Attach file</button>
     <button mat-button>Delete</button>
     <button mat-button>Edit</button>
 </div>

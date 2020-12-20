@@ -9,7 +9,6 @@ import { Note } from '../../classes/note';
   styleUrls: ['./note-details.component.scss']
 })
 export class NoteDetailsComponent implements OnInit {
-
   note: Note;
 
   constructor(
@@ -25,5 +24,4 @@ export class NoteDetailsComponent implements OnInit {
   onClick(): void {
     this.dialogRef.close();
   }
-
 }
